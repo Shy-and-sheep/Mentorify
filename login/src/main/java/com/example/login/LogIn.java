@@ -1,4 +1,6 @@
 package com.example.login;
+import com.example.LoginPackage.User;
+import com.example.LoginPackage.UserFacade;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,30 +28,28 @@ public class LogIn {
     private PasswordField password;
 
 
+    private UserFacade userFacade;
 
     public void userLogIn(ActionEvent event) throws IOException {
+        this.userFacade = new UserFacade();
         checkLogin();
 
     }
 
     private void checkLogin() throws IOException {
         Main m = new Main();
-        // TO DO : c'est ici qu'on vérifie les logs de l'user (connexion avec la base de données..)
-        if(username.getText().toString().equals("inesamz") && password.getText().toString().equals("123")) {
+        User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
+        if (user != null) {
+            System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
             wrongLogin.setText("Success!");
 
             m.changeScene("afterLogin.fxml");
         }
-
         else if(username.getText().isEmpty() && password.getText().isEmpty()) {
             wrongLogin.setText("Please enter your data.");
         }
-
-
         else {
             wrongLogin.setText("Wrong username or password!");
         }
     }
-
-
 }
