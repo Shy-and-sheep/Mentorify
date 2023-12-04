@@ -13,7 +13,7 @@ public class MySQLConnection {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connexion réussie !");
+            System.out.println("Connexion à la bd réussie !");
         } catch (SQLException e) {
             System.err.println("Erreur lors de la connexion à la base de données : " + e.getMessage());
         }

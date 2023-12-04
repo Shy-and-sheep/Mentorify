@@ -38,17 +38,18 @@ public class LogIn {
 
     private void checkLogin() throws IOException {
         Main m = new Main();
-        User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
-        if (user != null) {
-            System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
-            wrongLogin.setText("Success!");
-
-            m.changeScene("afterLogin.fxml");
-        }
-        else if(username.getText().isEmpty() && password.getText().isEmpty()) {
-            wrongLogin.setText("Please enter your data.");
-        }
-        else {
+        try {
+            User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
+            if (user != null) {
+                System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
+                wrongLogin.setText("Success!");
+                m.changeScene("afterLogin.fxml");
+            } else if(username.getText().isEmpty() && password.getText().isEmpty()) {
+                wrongLogin.setText("Please enter your data.");
+            } else {
+                wrongLogin.setText("Wrong username or password!");
+            }
+        } catch (Exception e) {
             wrongLogin.setText("Wrong username or password!");
         }
     }
