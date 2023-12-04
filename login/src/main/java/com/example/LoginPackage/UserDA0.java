@@ -3,7 +3,7 @@ package com.example.LoginPackage;
 /**
  * 
  */
-public abstract class UserDA0 extends UserFacade {
+public abstract class UserDA0{
 
     /**
      * Default constructor
@@ -16,6 +16,6 @@ public abstract class UserDA0 extends UserFacade {
      * @param mdp
      * @return
      */
-    public abstract User getUserByUsername(String email, String mdp);
+    public abstract User getUserByCredentials(String email, String mdp);
 
 }

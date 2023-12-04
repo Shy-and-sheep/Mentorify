@@ -21,9 +21,8 @@ public class UserDAOMySQL extends UserDA0 {
     /**
      *
      */
-    public User getUserByUsername(String username, String mdp) {
-        MySQLConnection mysqlConnection = new MySQLConnection();
-        Connection conn = mysqlConnection.getConnection(); // Méthode pour obtenir la connexion depuis MySQLConnection
+    public User getUserByCredentials(String username, String mdp) {
+        Connection conn = MySQLConnection.getConnection(); // Méthode pour obtenir la connexion depuis MySQLConnection
 
         PreparedStatement stmt = null;
         ResultSet rs = null;

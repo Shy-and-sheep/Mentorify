@@ -1,46 +1,30 @@
 package com.example.LoginPackage;
 
-import java.util.*;
-
-/**
- * 
- */
 public class UserFacade {
+    private static UserFacade instance;
+    private AbstractDAOFactory factory;
+    private User user;
 
-    /**
-     * Default constructor
-     */
-    public UserFacade() {
-        this.factory = new DAOMySQLFactory();
-
+    private UserFacade() {
+        this.factory = AbstractDAOFactory.getInstance();
     }
 
-    /**
-     * 
-     */
-    public AbstractDAOFactory factory;
-
-    /**
-     * 
-     */
-    public User user;
-
-    /**
-     * 
-     */
-    public void getFacade() {
-        // TODO implement here
+    public static UserFacade getInstance() {
+        if (instance == null) {
+            instance = new UserFacade();
+        }
+        return instance;
     }
 
-    /**
-     * @param username
-     * @param mdp
-     */
+    public void handleUser ( User user) {
+        if (user != null ) {
+            this.user = user;
+        }
+    }
+
     public User login(String username, String mdp) {
-
         User user = this.factory.getUserDAO(username, mdp);
-        System.out.println(user.username);
+        this.handleUser(user);
         return user;
     }
-
 }

@@ -31,23 +31,27 @@ public class LogIn {
     private UserFacade userFacade;
 
     public void userLogIn(ActionEvent event) throws IOException {
-        this.userFacade = new UserFacade();
+        this.userFacade = UserFacade.getInstance();
         checkLogin();
-
     }
 
-    private void checkLogin() throws IOException {
+    private void checkLogin() {
         Main m = new Main();
         try {
-            User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
-            if (user != null) {
-                System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
-                wrongLogin.setText("Success!");
-                m.changeScene("afterLogin.fxml");
-            } else if(username.getText().isEmpty() && password.getText().isEmpty()) {
+            if(username.getText().isEmpty() && password.getText().isEmpty()) {
                 wrongLogin.setText("Please enter your data.");
-            } else {
-                wrongLogin.setText("Wrong username or password!");
+            }
+            else {
+                User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
+                if (user != null) {
+                    System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
+                    wrongLogin.setText("Success!");
+                    m.changeScene("afterLogin.fxml");
+                } else if(username.getText().isEmpty() && password.getText().isEmpty()) {
+                    wrongLogin.setText("Please enter your data.");
+                } else {
+                    wrongLogin.setText("Wrong username or password!");
+                }
             }
         } catch (Exception e) {
             wrongLogin.setText("Wrong username or password!");

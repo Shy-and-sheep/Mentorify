@@ -9,13 +9,18 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
      * Default constructor
      */
     public DAOMySQLFactory() {
+        super();
     }
 
     /**
      * 
      */
-    public void getUserDAO() {
-        // TODO implement here
+    public User getUserDAO(String username, String mdp) {
+        // TO DO demander au prof si global ou local
+        UserDAOMySQL userDAOMySQL = new UserDAOMySQL();
+        User user = userDAOMySQL.getUserByCredentials(username, mdp);
+        System.out.println(user.username);
+        return user;
     }
 
 }
