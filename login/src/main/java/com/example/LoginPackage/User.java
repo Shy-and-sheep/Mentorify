@@ -40,10 +40,12 @@ public class User {
     }
 
     /**
+     * @return 
      * 
      */
-    public void getName() {
+    public String getName() {
         // TODO implement here
+    	return this.username; 
     }
 
     /**
