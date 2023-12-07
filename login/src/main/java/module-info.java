@@ -2,7 +2,7 @@ module com.example.login {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-	requires junit;
+	requires org.junit.jupiter.api;
 
 
     opens com.example.login to javafx.fxml;

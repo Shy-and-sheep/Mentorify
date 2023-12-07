@@ -2,8 +2,11 @@ package com.example.LoginPackage;
 
 import com.example.LoginPackage.UserFacade;
 import com.example.LoginPackage.User;
-import org.junit.Test;
-import static org.junit.Assert.*;
+//import org.junit.Test;
+//import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
 	
@@ -17,7 +20,7 @@ public class LoginTest {
 
         assertNotNull(result);
         assertEquals(username, result.getName());
-        // d'autres assertions peuvent être faites ici
+        //assertTrue(result); // Le test réussit si les identifiants sont corrects
     }
 
     @Test
@@ -29,6 +32,8 @@ public class LoginTest {
         User result = userFacade.login(username, password);
 
         assertNull(result);
+        //assertFalse(result); // Le test réussit si les identifiants sont incorrects
+
     }
 
 }
