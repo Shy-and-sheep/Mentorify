@@ -35,8 +35,9 @@ public class User {
     /**
      * 
      */
-    public void getId() {
+    public int getId() {
         // TODO implement here
+        return this.id;
     }
 
     /**
