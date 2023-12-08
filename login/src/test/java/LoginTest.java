@@ -1,20 +1,21 @@
-package com.example.LoginPackage;
 
 import com.example.LoginPackage.UserFacade;
 import com.example.LoginPackage.User;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 //import org.junit.Test;
 //import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
+//import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
 public class LoginTest {
-	
-	@Test
+
+    @Test
     public void testLoginSuccess() {
         UserFacade userFacade = UserFacade.getInstance();
-        String username = "testUser"; // à mettre un utilisateur valide 
-        String password = "testPassword"; // à mettre un mot de passe valide 
+        String username = "yo"; // à mettre un utilisateur valide
+        String password = "1234"; // à mettre un mot de passe valide
 
         User result = userFacade.login(username, password);
 
@@ -26,8 +27,8 @@ public class LoginTest {
     @Test
     public void testLoginFailure() {
         UserFacade userFacade = UserFacade.getInstance();
-        String username = "nonExistingUser";
-        String password = "wrongPassword";
+        String username = "yo";
+        String password = "12";
 
         User result = userFacade.login(username, password);
 
