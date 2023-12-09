@@ -27,12 +27,13 @@ public class LoginTest {
     @Test
     public void testLoginFailure() {
         UserFacade userFacade = UserFacade.getInstance();
-        String username = "yo";
+        String username = "ksksk";
         String password = "12";
 
         User result = userFacade.login(username, password);
 
         assertNull(result);
+        //assertEquals(false, result); // Le test réussit si les identifiants sont incorrects
         //assertFalse(result); // Le test réussit si les identifiants sont incorrects
 
     }
