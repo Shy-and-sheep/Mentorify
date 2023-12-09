@@ -10,10 +10,11 @@ public class User {
     /**
      * Default constructor
      */
-    public User( int id, String mdp, String username ) {
+    public User( int id, String mdp, String username, String name) {
         this.id = id;
         this.username = username;
         this.mdp = mdp;
+        this.name = name;
     }
 
     /**
@@ -31,6 +32,8 @@ public class User {
      */
     public  String mdp;
 
+    public String name;
+
 
     /**
      * 
@@ -46,7 +49,12 @@ public class User {
      */
     public String getName() {
         // TODO implement here
-    	return this.username; 
+    	return this.name;
+    }
+
+    public String getUsername() {
+        // TODO implement here
+        return this.username;
     }
 
     /**

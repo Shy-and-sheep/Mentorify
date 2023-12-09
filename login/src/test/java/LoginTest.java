@@ -14,13 +14,13 @@ public class LoginTest {
     @Test
     public void testLoginSuccess() {
         UserFacade userFacade = UserFacade.getInstance();
-        String username = "yo"; // à mettre un utilisateur valide
-        String password = "1234"; // à mettre un mot de passe valide
+        String username = "amel"; // à mettre un utilisateur valide
+        String password = "amel"; // à mettre un mot de passe valide
 
         User result = userFacade.login(username, password);
 
         assertNotNull(result);
-        assertEquals(username, result.getName());
+        assertEquals(username, result.getUsername());
         //assertTrue(result); // Le test réussit si les identifiants sont corrects
     }
 

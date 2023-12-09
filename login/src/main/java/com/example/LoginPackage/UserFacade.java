@@ -2,12 +2,9 @@ package com.example.LoginPackage;
 
 public class UserFacade {
     private static UserFacade instance;
-    private AbstractDAOFactory factory;
     private User user;
 
-    private UserFacade() {
-        this.factory = AbstractDAOFactory.getInstance();
-    }
+    private UserFacade() { }
 
     public static UserFacade getInstance() {
         if (instance == null) {
@@ -16,15 +13,14 @@ public class UserFacade {
         return instance;
     }
 
-    public void handleUser ( User user) {
-        if (user != null ) {
-            this.user = user;
-        }
+    public User getUser() {
+        return this.user;
     }
 
+
     public User login(String username, String mdp) {
-        User user = this.factory.getUserDAO(username, mdp);
-        this.handleUser(user);
+        AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
+        this.user = factory.getUserDAO(username, mdp);
         return user;
     }
 }

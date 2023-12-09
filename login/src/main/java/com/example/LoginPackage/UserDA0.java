@@ -14,7 +14,7 @@ public abstract class UserDA0{
     /**
      * @param email
      * @param mdp
-     * @return
+     * @return User
      */
     public abstract User getUserByCredentials(String email, String mdp);
 

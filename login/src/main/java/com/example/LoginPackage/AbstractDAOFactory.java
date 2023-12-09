@@ -30,17 +30,5 @@ public abstract class AbstractDAOFactory {
      */
     public abstract User getUserDAO(String username, String mdp);
 
-    /**
-     * Method to get the factory
-     */
-    public void getFactory() {
-        // TODO implement here
-    }
 
-    /**
-     * Method to create UserDAO
-     */
-    public void creerUserDAO() {
-        // TODO implement here
-    }
 }

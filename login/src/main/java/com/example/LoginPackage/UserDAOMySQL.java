@@ -39,9 +39,9 @@ public class UserDAOMySQL extends UserDA0 {
                 int userId = rs.getInt("id");
                 String retrievedUsername = rs.getString("username");
                 String retrievedPassword = rs.getString("password");
+                String retrievedName = rs.getString("name");
 
-                user = new User(userId, retrievedPassword, retrievedUsername);
-                System.out.println(user.username + " " + user.mdp);
+                user = new User(userId, retrievedPassword, retrievedUsername, retrievedName);
             }
         } catch (SQLException e) {
             e.printStackTrace();
