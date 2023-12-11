@@ -29,7 +29,7 @@ public class UserDAOMySQL extends UserDA0 {
         User user = null;
 
         try {
-            String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+            String query = "SELECT id, username, password, name FROM users WHERE username = ? AND password = ?";
             stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, mdp);
@@ -42,6 +42,8 @@ public class UserDAOMySQL extends UserDA0 {
                 String retrievedName = rs.getString("name");
 
                 user = new User(userId, retrievedPassword, retrievedUsername, retrievedName);
+                System.out.println(user.getName());
+                System.out.println(user.getUsername());
             }
         } catch (SQLException e) {
             e.printStackTrace();

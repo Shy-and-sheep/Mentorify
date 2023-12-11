@@ -35,17 +35,29 @@ public class LogIn {
         checkLogin();
     }
 
-    private void checkLogin() {
+    /*private void checkLogin() {
         Main m = new Main();
         try {
             if(username.getText().isEmpty() && password.getText().isEmpty()) {
                 wrongLogin.setText("Please enter your data.");
             }
             else {
-                User user = this.userFacade.login(username.getText().toString(), password.getText().toString());
+                this.userFacade = UserFacade.getInstance();
+                User user = userFacade.login(username.getText().toString(), password.getText().toString());
                 if (user != null) {
+                    System.out.println(user.getName());
                     System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
                     wrongLogin.setText("Success!");
+
+                    /*FXMLLoader loader = new FXMLLoader(getClass().getResource("afterLogin.fxml"));
+                    Parent root = loader.load();
+
+                    //AfterLogin afterLoginController = loader.getController();
+                    //afterLoginController.setUser(user);
+                    AfterLogin afterLoginController = new AfterLogin();
+                    afterLoginController.setUsername(user.username);
+
+
                     m.changeScene("afterLogin.fxml");
                 } else if(username.getText().isEmpty() && password.getText().isEmpty()) {
                     wrongLogin.setText("Please enter your data.");
@@ -54,7 +66,36 @@ public class LogIn {
                 }
             }
         } catch (Exception e) {
+            System.out.println("il y a une erreur");
             wrongLogin.setText("Wrong username or password!");
         }
+    }*/
+    private void checkLogin() {
+        Main m = new Main();
+        try {
+            if(username.getText().isEmpty() && password.getText().isEmpty()) {
+                wrongLogin.setText("Please enter your data.");
+            }
+            else {
+                this.userFacade = UserFacade.getInstance();
+                User user = userFacade.login(username.getText().toString(), password.getText().toString());
+                if (user != null) {
+                    System.out.println(user.getName());
+                    System.out.println("le user : " + user.id + " " + user.username + " est bien connecté");
+                    wrongLogin.setText("Success!");
+
+                    m.changeScene("afterLogin.fxml");
+                } else {
+                    wrongLogin.setText("Wrong username or password!");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("IOException: " + e.getMessage());
+            wrongLogin.setText("An error occurred!");
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            wrongLogin.setText("An error occurred!");
+        }
     }
+
 }
