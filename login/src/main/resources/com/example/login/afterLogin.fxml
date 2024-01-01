@@ -25,7 +25,7 @@
                   <FontAwesomeIcon glyphName="COGS" size="3rem" />
                </graphic>
             </Button>
-            <Label fx:id="welcomeLabel" layoutX="200.0" layoutY="163.0" textAlignment="CENTER" textFill="#523d41">
+            <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="-1.0" layoutY="163.0" prefHeight="44.0" prefWidth="600.0" textAlignment="CENTER" textFill="#523d41">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
