@@ -17,12 +17,22 @@ public class TableauDeBord {
     private Button typesDeFormationButton;
 
     @FXML
+    private Button typesDePostButton;
+
+    @FXML
     private Label tabdebordlabel;
 
     private UserFacade userFacade;
 
     public void switchToTypeFormation(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("typeformation.fxml");;}
+        m.changeScene("typeformation.fxml");
+        ;
+    }
+
+    public void switchToTypePost(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("TP-view.fxml");
+    }
 }
 

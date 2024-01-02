@@ -1,5 +1,6 @@
-package com.example.TPControllers;
+package com.example.admin.TPControllers;
 
+import com.example.login.Main;
 import com.example.TPPackage.TypePost;
 import com.example.TPPackage.TypePostFacade;
 import javafx.event.ActionEvent;
@@ -42,12 +43,12 @@ public class ModifierTP implements Initializable {
     public void modifiertypePost(ActionEvent event) throws IOException {
         TypePostFacade.getInstance().setTypePost(typePostId, nomField.getText().toString(),descriptionField.getText().toString());
         //changement de scène
-        MainTP m = new MainTP();
+        Main m = new Main();
         m.changeScene("TP-view.fxml");
     }
 
     public void annulationDeModification(ActionEvent event) throws IOException {
-        MainTP m = new MainTP();
+        Main m = new Main();
         m.changeScene("TP-view.fxml");
     }
 }

@@ -1,7 +1,8 @@
-package com.example.TPControllers;
+package com.example.admin.TPControllers;
+
+import com.example.login.Main;
 import com.example.TPPackage.TypePost;
 import com.example.TPPackage.TypePostFacade;
-import com.example.login.Main;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -117,12 +118,12 @@ public class TypePostControllers implements Initializable {
         }
 
         public void setTypePost(ActionEvent event) throws IOException {
-                MainTP m = new MainTP();
+                Main m = new Main();
                 m.changeScene("ModifierTP-view.fxml");
         }
 
         public void ajoutTP (ActionEvent a) throws IOException {
-                MainTP m = new MainTP();
-                m.changeScene("AjoutPost-view.fxml");
+                Main m = new Main();
+                m.changeScene("AjoutTypePost-view.fxml");
         }
 }

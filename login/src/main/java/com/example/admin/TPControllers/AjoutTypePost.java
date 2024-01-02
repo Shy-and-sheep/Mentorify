@@ -1,4 +1,6 @@
-package com.example.TPControllers;
+package com.example.admin.TPControllers;
+
+import com.example.login.Main;
 import com.example.TPPackage.TypePostFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,12 +21,12 @@ public class AjoutTypePost {
 
         public void ajoutduPost(ActionEvent event) throws IOException {
             TypePostFacade.getInstance().addTypePost(nomInput.getText().toString(),descriptionInput.getText().toString());
-            MainTP m = new MainTP();
+            Main m = new Main();
             m.changeScene("TP-view.fxml");
         }
 
         public void annulation(ActionEvent event) throws IOException {
-            MainTP m = new MainTP();
+            Main m = new Main();
             m.changeScene("TP-view.fxml");
         }
 }
