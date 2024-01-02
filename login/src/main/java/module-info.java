@@ -16,4 +16,3 @@ module com.example.login {
     opens com.example.database to javafx.fxml;
     exports com.example.admin;
     opens com.example.admin to javafx.fxml;
-}
