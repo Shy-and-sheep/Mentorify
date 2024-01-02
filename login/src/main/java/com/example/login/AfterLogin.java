@@ -20,6 +20,9 @@ public class AfterLogin {
     @FXML
     private Label welcomeLabel;
 
+    @FXML
+    private Button tableaudebord;
+
     private UserFacade userFacade;
 
 
@@ -37,6 +40,10 @@ public class AfterLogin {
 
     public void userLogOut(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("LogIn-view.fxml");
+        m.changeScene("Login-view.fxml");;
     }
+
+    public void adminTabDeBord(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("tableauDeBord.fxml");;}
 }
