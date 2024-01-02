@@ -14,4 +14,6 @@ module com.example.login {
     exports com.example.LoginPackage;
     exports com.example.database;
     opens com.example.database to javafx.fxml;
+    exports com.example.TPControllers;
+    opens com.example.TPControllers to javafx.fxml;
 }
