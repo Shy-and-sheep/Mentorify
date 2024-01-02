@@ -50,7 +50,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="141.0" mnemonicParsing="false" onAction="#ajoutTypeFormation" style="-fx-background-color: BFB0B0;" text="Ajouter">
+            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="141.0" mnemonicParsing="false" onAction="#addTypeFormation" style="-fx-background-color: BFB0B0;" text="Ajouter">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -58,12 +58,12 @@
                   <FontAwesomeIcon glyphName="PLUS" />
                </graphic>
             </Button>
-            <Button fx:id="modifierbutton" layoutX="461.0" layoutY="82.0" mnemonicParsing="false" onAction="#modifyTypeFormation" prefHeight="29.0" prefWidth="43.0" style="-fx-background-color: C6D3B6;">
+            <Button fx:id="modifierbutton" layoutX="461.0" layoutY="82.0" mnemonicParsing="false" onAction="#setTypeFormation" prefHeight="29.0" prefWidth="43.0" style="-fx-background-color: C6D3B6;">
                <graphic>
                   <FontAwesomeIcon glyphName="PENCIL" size="2em" text=" " wrappingWidth="35.285715103149414" />
                </graphic>
             </Button>
-            <Button fx:id="supprimerboutton" layoutX="524.0" layoutY="82.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="55.0" style="-fx-background-color: BB8A9A;">
+            <Button fx:id="supprimerboutton" layoutX="524.0" layoutY="82.0" mnemonicParsing="false" onAction="#removeTypeFormation" prefHeight="30.0" prefWidth="55.0" style="-fx-background-color: BB8A9A;">
                <graphic>
                   <FontAwesomeIcon glyphName="TRASH" size="2em" />
                </graphic>

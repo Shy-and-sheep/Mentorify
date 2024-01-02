@@ -1,6 +1,7 @@
 package com.example.admin;
 
 import com.example.LoginPackage.UserFacade;
+import com.example.TFPackage.TypeFormationFacade;
 import com.example.login.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -35,7 +36,7 @@ public class AjoutTypeFormation {
     private Button ajouterbutton;
 
     public void ajoutdelaformation(ActionEvent event) throws IOException {
-        // TO DO : met à jour le type de formation dans la façade
+        TypeFormationFacade.getInstance().addTypeFormation(nomInput.getText().toString(),descriptionInput.getText().toString());
         Main m = new Main();
         m.changeScene("typeformation.fxml");
     }

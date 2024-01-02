@@ -1,6 +1,7 @@
 package com.example.admin;
 
-import com.example.LoginPackage.UserFacade;
+import com.example.TFPackage.TypeFormation;
+import com.example.TFPackage.TypeFormationFacade;
 import com.example.login.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,9 +36,22 @@ public class ModifierTypeFormation {
     @FXML
     private Button ajouterbutton;
 
+    private TypeFormationFacade typeFormationFacade;
+    private int typeFormationId;
+
+    public void initialize() {
+        TypeFormation currentTypeFormation = TypeFormationFacade.getInstance().getTypeFormation();
+        if (currentTypeFormation != null) {
+            typeFormationId = currentTypeFormation.getId();
+            nomField.setText(currentTypeFormation.getNom());
+            descriptionField.setText(currentTypeFormation.getDescription());
+            System.out.println(typeFormationId + currentTypeFormation.getNom() + currentTypeFormation.getDescription());
+        }
+    }
+
     public void modifiertypeformation(ActionEvent event) throws IOException {
-        // TO DO : récupère les infos du type de formation pour préremplir les input
-        // TO DO : modifie le type de formation dans la façade
+        TypeFormationFacade.getInstance().setTypeFormation(typeFormationId, nomField.getText().toString(),descriptionField.getText().toString());
+        //changement de scène
         Main m = new Main();
         m.changeScene("typeformation.fxml");
     }
