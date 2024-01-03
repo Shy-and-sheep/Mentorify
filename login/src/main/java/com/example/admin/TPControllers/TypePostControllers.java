@@ -87,7 +87,7 @@ public class TypePostControllers implements Initializable {
 
         public void setTypPost(ActionEvent event) throws IOException {
                 Main m = new Main();
-                m.changeScene("modifierTypePost.fxml");
+                m.changeScene("ModifierTP-view.fxml");
         }
 
         public void removeTypePost(ActionEvent event) {
