@@ -18,4 +18,6 @@ module com.example.login {
     opens com.example.admin to javafx.fxml;
     exports com.example.admin.TPControllers;
     opens com.example.admin.TPControllers to javafx.fxml;
+    exports com.example.formation;
+    opens com.example.formation to javafx.fxml;
 }

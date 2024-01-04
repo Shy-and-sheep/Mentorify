@@ -23,6 +23,9 @@ public class AfterLogin {
     @FXML
     private Button tableaudebord;
 
+    @FXML
+    private Button formationbutton;
+
     private UserFacade userFacade;
 
 
@@ -45,5 +48,9 @@ public class AfterLogin {
 
     public void adminTabDeBord(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("tableauDeBord.fxml");;}
+        m.changeScene("tableauDeBord.fxml");}
+
+    public void goToFormation(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("Formation-view.fxml");;}
 }
