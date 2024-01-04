@@ -34,5 +34,10 @@ public class TableauDeBord {
         Main m = new Main();
         m.changeScene("TP-view.fxml");
     }
+
+    public void switchToTypePaiement(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("TPaiement.fxml");
+    }
 }
 

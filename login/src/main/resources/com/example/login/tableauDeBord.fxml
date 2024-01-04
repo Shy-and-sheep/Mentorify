@@ -38,6 +38,15 @@
                   <FontAwesomeIcon glyphName="INFO" size="2em" />
                </graphic>
             </Button>
+
+            <Button fx:id="typesPaiementButton" mnemonicParsing="false" onAction="#switchToTypePaiement" style="-fx-background-color: BB8A9A;" text="Types dpaiement">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="INFO" size="2em" />
+               </graphic>
+            </Button>
          </children>
       </VBox>
    </center>

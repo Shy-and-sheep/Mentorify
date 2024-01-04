@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
 
 
 /**
@@ -28,7 +27,7 @@ import static javafx.application.Application.launch;
  }
  */
 
-public class Main extends Application {
+public class MainA extends Application{
     private static Stage stg;
 
     @Override
@@ -36,18 +35,19 @@ public class Main extends Application {
         stg = stage;
         stage.setResizable(false);
         // Change ici pour ton fichier FXML initial.
-        Parent root = FXMLLoader.load(getClass().getResource("TPaiement.fxml"));
+        var test = getClass().getResource("TPaiement.fxml");
+        Parent root = FXMLLoader.load(test);
         stage.setTitle("Mentorify");
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }
 
     public static void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
+        Parent pane = FXMLLoader.load(MainA.class.getResource(fxml));
         stg.getScene().setRoot(pane);
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }
