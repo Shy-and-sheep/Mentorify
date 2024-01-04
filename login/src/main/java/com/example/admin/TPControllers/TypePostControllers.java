@@ -32,6 +32,9 @@ public class TypePostControllers implements Initializable {
         private ListView<String> listPub;
 
         @FXML
+        private Label descriptionLabel;
+
+        @FXML
         private Button modifBtn;
 
         @FXML
@@ -65,11 +68,8 @@ public class TypePostControllers implements Initializable {
 
                 List<String> typePostNom = tabTypePost.stream().map(TypePost::getNom).collect(Collectors.toList());
                 listPub.getItems().addAll(typePostNom);
-                System.out.println("**************************");
                 for (TypePost post : tabTypePost) {
                         typePostMap.put(post.getNom(), post.getDescription());
-
-                        System.out.println(post.getNom());
                 }
 
                 listPub.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
@@ -81,13 +81,10 @@ public class TypePostControllers implements Initializable {
                         if (currentTypePost != null) {
                                 this.typePostFacade.getTypePostById(currentTypePost.getId());
                                 typepostnom.setText(currentTypePost.getNom());
+                                updateDescription();
                         }
-                });
-        }
 
-        public void setTypPost(ActionEvent event) throws IOException {
-                Main m = new Main();
-                m.changeScene("ModifierTP-view.fxml");
+                });
         }
 
         public void removeTypePost(ActionEvent event) {
@@ -110,6 +107,18 @@ public class TypePostControllers implements Initializable {
 
                 } else {
                         System.out.println("Veuillez sélectionner un type de post à supprimer.");
+                }
+        }
+
+        private void updateDescription() {
+                if (currentTypePost != null) {
+                        String description = currentTypePost.getDescription();
+
+                        if (description != null && !description.isEmpty()) {
+                                descriptionLabel.setText(description);
+                        } else {
+                                descriptionLabel.setText("Description non disponible");
+                        }
                 }
         }
 
