@@ -47,14 +47,24 @@ public class FormationDAOMySQL extends FormationDAO {
 
     public void removeFormation(int id) {
         Connection conn = null;
-        PreparedStatement stmt = null;
+        PreparedStatement inscriptionsStmt = null;
+        PreparedStatement formationsStmt = null;
 
         try {
             conn = MySQLConnection.getConnection();
-            String query = "DELETE FROM Formations WHERE id = ?";
-            stmt = conn.prepareStatement(query);
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
+
+            // Suppression des inscriptions associées à la formation
+            String deleteInscriptionsQuery = "DELETE FROM Inscriptions WHERE FormationId = ?";
+            inscriptionsStmt = conn.prepareStatement(deleteInscriptionsQuery);
+            inscriptionsStmt.setInt(1, id);
+            inscriptionsStmt.executeUpdate();
+
+            // Suppression de la formation
+            String deleteFormationQuery = "DELETE FROM Formations WHERE id = ?";
+            formationsStmt = conn.prepareStatement(deleteFormationQuery);
+            formationsStmt.setInt(1, id);
+            formationsStmt.executeUpdate();
+
             System.out.println("La formation avec l'ID " + id + " a été supprimée avec succès.");
         } catch (SQLException e) {
             e.printStackTrace();
