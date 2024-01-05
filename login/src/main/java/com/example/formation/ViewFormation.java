@@ -75,6 +75,11 @@ public class ViewFormation implements Initializable{
         formationFacade.getInstance().desinscriptionFormation(userId,formationId);
         inscriptionLabel.setText("Vous n'êtes plus inscrit !");
         Main m = new Main();
-        m.changeScene("Formation-view.fxml");    }
+        m.changeScene("Formation-view.fxml");
+    }
+    public void goToComments(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("Commentaire-viem.fxml");
+    }
 
 }

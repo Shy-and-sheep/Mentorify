@@ -24,6 +24,11 @@
                   <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
+            <Button layoutX="440.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: C6D3B6;" text="Voir les avis">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </bottom>

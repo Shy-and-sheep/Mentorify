@@ -3,8 +3,6 @@ package com.example.formation;
 import com.example.FormationPackage.FormationFacade;
 import com.example.FormationPackage.Formation;
 
-import com.example.TFPackage.TypeFormation;
-import com.example.TFPackage.TypeFormationFacade;
 import com.example.login.Main;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,6 +56,15 @@ public class FormationController implements Initializable {
         List<String> formationNom = tabFormation.stream().map(Formation::getNom).collect(Collectors.toList());
         listFormations.getItems().addAll(formationNom);
 
+        if (!tabFormation.isEmpty()) {
+            currentFormation = tabFormation.get(0); // Sélectionne la première formation par défaut
+
+            formationname.setText(currentFormation.getNom());
+            descriptionLabel.setText(currentFormation.getDescription());
+            prixLabel.setText(currentFormation.getPrix() + " €");
+            placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());
+        }
+
         listFormations.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             currentFormation = tabFormation.stream()
                     .filter(formation -> formation.getNom().equals(newValue))
@@ -74,6 +80,7 @@ public class FormationController implements Initializable {
             }
         });
     }
+
 
     public void setFormation(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -114,13 +121,6 @@ public class FormationController implements Initializable {
         Main m = new Main();
         m.changeScene("addFormation.fxml");
     }
-
-    /*public void inscriptionFormation(Actionevent event) {
-        // TODO implement here
-    }
-    public void desinscriptionSession(Actionevent event) {
-        // TODO implement here
-    }*/
 
     public void backToAfterLogin(ActionEvent event) throws IOException {
         Main m = new Main();

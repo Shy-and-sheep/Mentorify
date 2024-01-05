@@ -1,5 +1,7 @@
 package com.example.FormationPackage;
 
+import com.example.CommentairePackage.Commentaire;
+
 import java.util.*;
 
 /**
@@ -38,5 +40,6 @@ public abstract class AbstractDAOFactory {
     public abstract void inscriptionFormationDAO(int userId,int idFormation);
 
     public abstract void desinscriptionFormationDAO(int userId,int idFormation);
+
 
 }
