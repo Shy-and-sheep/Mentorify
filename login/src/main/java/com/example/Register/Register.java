@@ -1,10 +1,13 @@
 package com.example.Register;
 
 
+import com.example.login.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Register {
 
@@ -56,6 +59,17 @@ public class Register {
         // Logique pour gérer l'enregistrement de l'utilisateur
         // Main.changeScene("Register-view.fxml"); //y a erreur ici
     }
+    @FXML
+    private void handleLoginLinkAction(ActionEvent event) {
+        // code pour changer de scène, par exemple retourner à l'écran de connexion
+        Main m = new Main();
+        try {
+            m.changeScene("LogIn-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
 
