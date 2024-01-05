@@ -53,4 +53,10 @@ public class AfterLogin {
     public void goToFormation(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("Formation-view.fxml");;}
+
+
+    public void switchListPost(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("ListPost-view.fxml");
+    }
 }
