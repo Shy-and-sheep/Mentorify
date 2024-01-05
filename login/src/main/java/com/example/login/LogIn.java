@@ -2,6 +2,10 @@ package com.example.login;
 import com.example.LoginPackage.User;
 import com.example.LoginPackage.UserFacade;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -58,6 +62,10 @@ public class LogIn {
             System.out.println("Exception: " + e.getMessage());
             wrongLogin.setText("An error occurred!");
         }
+    }
+    public void register(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("Register-view.fxml");
     }
 
 }

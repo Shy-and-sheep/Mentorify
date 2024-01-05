@@ -20,4 +20,6 @@ module com.example.login {
     opens com.example.admin.TPControllers to javafx.fxml;
     exports com.example.TPaiementPackage ;
     opens com.example.TPaiementPackage to javafx.fxml;
+    exports com.example.Register ;
+    opens com.example.Register to javafx.fxml ;
 }

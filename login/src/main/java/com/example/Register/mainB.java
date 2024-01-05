@@ -1,4 +1,4 @@
-package com.example.RegisterPackage;
+package com.example.Register;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

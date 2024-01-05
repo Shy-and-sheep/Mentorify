@@ -45,5 +45,7 @@ public class AfterLogin {
 
     public void adminTabDeBord(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("tableauDeBord.fxml");;}
+        m.changeScene("tableauDeBord.fxml");;
+    }
+
 }
