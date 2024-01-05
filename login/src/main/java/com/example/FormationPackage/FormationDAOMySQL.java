@@ -185,16 +185,26 @@ public class FormationDAOMySQL extends FormationDAO {
                 nbPlacesMax = resultSet.getInt("nbPlacesMax");
             }
 
-            //si il y a des places dispo
-            if (nbPlacesDispo > 0) {
+            // Vérification si l'utilisateur est déjà inscrit
+            String checkInscriptionQuery = "SELECT * FROM Inscriptions WHERE userId = ? AND FormationId = ?";
+            stmt = conn.prepareStatement(checkInscriptionQuery);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, idFormation);
+            ResultSet existingInscription = stmt.executeQuery();
+
+            if (existingInscription.next()) {
+                System.out.println("L'utilisateur est déjà inscrit à cette formation.");
+                return; // Ne pas inscrire s'il est déjà inscrit
+            }
+
+            // Si des places sont disponibles et pas de double inscription
+            if (nbPlacesDispo > 0 && nbPlacesDispo <= nbPlacesMax) {
                 String updateQuery = "UPDATE Formations SET nbPlacesDispo = nbPlacesDispo - 1 WHERE id = ?";
                 stmt = conn.prepareStatement(updateQuery);
                 stmt.setInt(1, idFormation);
                 int rowsUpdated = stmt.executeUpdate();
 
-                //si maj réussi
                 if (rowsUpdated > 0) {
-                    // Insérer une nouvelle inscription dans la table 'Inscriptions'
                     String insertQuery = "INSERT INTO Inscriptions (userId, FormationId) VALUES (?, ?)";
                     stmt = conn.prepareStatement(insertQuery);
                     stmt.setInt(1, userId);
@@ -217,12 +227,13 @@ public class FormationDAOMySQL extends FormationDAO {
         }
     }
 
-    public void desinscriptionFormation(int userId,int idFormation) {
+    public void desinscriptionFormation(int userId, int idFormation) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
             conn = MySQLConnection.getConnection();
+
             // Vérification de l'inscription de l'utilisateur à la formation
             String checkInscriptionQuery = "SELECT * FROM Inscriptions WHERE userId = ? AND FormationId = ?";
             stmt = conn.prepareStatement(checkInscriptionQuery);
@@ -230,7 +241,6 @@ public class FormationDAOMySQL extends FormationDAO {
             stmt.setInt(2, idFormation);
             ResultSet resultSet = stmt.executeQuery();
 
-            // Si l'utilisateur est inscrit à la formation
             if (resultSet.next()) {
                 // Désinscription de l'utilisateur
                 String updateQuery = "DELETE FROM Inscriptions WHERE userId = ? AND FormationId = ?";
@@ -261,4 +271,5 @@ public class FormationDAOMySQL extends FormationDAO {
             e.printStackTrace();
         }
     }
+
 }
