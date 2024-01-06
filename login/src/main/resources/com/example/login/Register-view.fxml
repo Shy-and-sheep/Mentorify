@@ -59,8 +59,8 @@
                         <Label layoutX="30.0" layoutY="206.0" text="Mot de passe*:"/>
                         <TextField fx:id="passwordField" layoutX="154.0" layoutY="205.0" />
 
-                        <Button fx:id="cancelButton" layoutX="230.0" layoutY="235.0" style="-fx-background-color: A793A1;" text="Annuler" />
-                        <Button fx:id="registerButton" layoutX="324.0" layoutY="235.0" style="-fx-background-color: C6D3B6;" text="Valider" />
+                        <Button fx:id="cancelButton" layoutX="230.0" layoutY="235.0" style="-fx-background-color: A793A1;" text="Annuler" onAction="#onCancelButtonClick" />
+                        <Button fx:id="registerButton" layoutX="324.0" layoutY="235.0" style="-fx-background-color: C6D3B6;" text="Valider" onAction="#onRegisterButtonClick" />
                         <Hyperlink layoutX="100.0" layoutY="260.0" text="Déjà un compte? Se connecter" onAction="#handleLoginLinkAction" style="-fx-text-fill: grey;"/>
                     </children>
                 </Pane>
@@ -73,89 +73,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<GridPane fx:controller="com.example.Register.Register"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-
-    <Text text="Inscription" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
-        <font>
-            <Font name="System Bold" size="20" />
-        </font>
-    </Text>
-
-    <Label text="Nom*:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-    <Label text="Prénom*:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-    <Label text="Email*:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-
-    <Label text="Statut*:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField fx:id="statusField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-
-    <Label text="Mot de passe*:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-
-    <HBox spacing="10" alignment="center" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2">
-        <Button text="Annuler" fx:id="cancelButton" style="-fx-background-color: A793A1; -fx-text-fill: #FFFFFF;" />
-        <Button text="Valider" fx:id="registerButton" style="-fx-background-color: C6D3B6; -fx-text-fill: #FFFFFF;" />
-    </HBox>
-</GridPane>
-
-
-
-
-
-
-
-<Text text="Inscription" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
-<font>
-    <Font name="System Bold" size="20" />
-</font>
-</Text>
-
-<Label text="Nom*:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-<TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-<Label text="Prénom*:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-<TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-<Label text="Email*:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-<TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-
-<Label text="Statut*:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-<TextField fx:id="statusField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-
-<Label text="Mot de passe*:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-<TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-
-<HBox spacing="10" alignment="center" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2">
-<Button text="Annuler" fx:id="cancelButton" style="-fx-background-color: A793A1; -fx-text-fill: #FFFFFF;" />
-<Button text="Valider" fx:id="registerButton" style="-fx-background-color: C6D3B6; -fx-text-fill: #FFFFFF;" />
-</HBox>
-
-
--->

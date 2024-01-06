@@ -35,7 +35,6 @@ public class User {
      * 
      */
     public int getId() {
-        // TODO implement here
         return this.id;
     }
 
@@ -44,51 +43,46 @@ public class User {
      * 
      */
     public String getName() {
-        // TODO implement here
     	return this.name;
     }
 
     public String getUsername() {
-        // TODO implement here
         return this.username;
     }
 
     public String getFirstName() {
-        // TODO implement here
-        return "";
+        return this.first_name;
     }
 
     public String getEmail() {
-        // TODO implement here
-        return "";
+        return this.email;
     }
 
     public String getStatut() {
-        // TODO implement here
-        return "";
+        return this.statut;
     }
 
     /**
      * 
      */
     public void setName() {
-        // TODO implement here
+        this.name = name;
     }
 
     private void setFirstName(String first_name) {
-        // TODO implement here
+        this.first_name = first_name;
     }
 
     private void setEmail(String email) {
-        // TODO implement here
+        this.email = email;
     }
 
     private void setStatut(String email) {
-        // TODO implement here
+        this.statut = statut;
     }
 
     private void setMdp(String mdp) {
-        // TODO implement here
+        this.mdp = mdp;
     }
 
 

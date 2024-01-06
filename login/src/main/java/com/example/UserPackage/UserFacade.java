@@ -24,8 +24,21 @@ public class UserFacade {
         return user;
     }
 
-    public User Register(String name, String first_name, String username, String mdp, String email, String profile_picture) {
-        // TODO implement here
-        return null;
+    public User Register(String name, String first_name, String username, String mdp, String email, String statut) {
+        // Vérifier si l'utilisateur existe déjà
+        /*
+        AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
+        UserDAOMySQL userDAOMySQL = (UserDAOMySQL) factory.getUserDAO();
+        if (userDAOMySQL.userExists(username, email)) {
+            // Lever une exception ou retourner null
+            return null;
+        }
+        */
+
+        // Créer un nouvel utilisateur
+        AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
+        User newUser = factory.CreateUser(name, first_name, username, mdp, email, statut);
+
+        return newUser;
     }
 }

@@ -22,8 +22,8 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
     }
 
     public User CreateUser( String name, String first_name, String username, String mdp, String email,  String statut) {
-        // TODO implement here
-        return null;
+        return userDAOMySQL.CreateUser(name, first_name, username, mdp, email, statut);
+
     }
 
 }
