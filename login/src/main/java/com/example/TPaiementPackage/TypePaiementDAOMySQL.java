@@ -58,7 +58,7 @@ public class TypePaiementDAOMySQL extends TypePaiementDAO {
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<TypePaiement> typePaiementList = null;
+        List<TypePaiement> typePaiementList = new ArrayList<TypePaiement>();
 
         try {
             String query = "select id, nom, description FROM TypePaiement";
