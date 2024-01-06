@@ -57,7 +57,7 @@ public class PostDAOMySQL extends PostDA0 {
         PreparedStatement statement = null;
         List<Post> posts = new ArrayList<>();
         try {
-            String query = "SELECT id,  autheurId,typePostId,contenu, sessionId, nbLike FROM Posts";
+            String query = "SELECT id,autheurId,typePostId,contenu, sessionId, nbLike FROM Posts";
             statement = conn.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
             System.out.println("**********************");

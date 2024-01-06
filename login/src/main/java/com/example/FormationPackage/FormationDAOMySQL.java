@@ -49,6 +49,7 @@ public class FormationDAOMySQL extends FormationDAO {
         Connection conn = null;
         PreparedStatement inscriptionsStmt = null;
         PreparedStatement formationsStmt = null;
+        PreparedStatement commentairesStmt = null;
 
         try {
             conn = MySQLConnection.getConnection();
@@ -58,6 +59,12 @@ public class FormationDAOMySQL extends FormationDAO {
             inscriptionsStmt = conn.prepareStatement(deleteInscriptionsQuery);
             inscriptionsStmt.setInt(1, id);
             inscriptionsStmt.executeUpdate();
+
+            //suprpression des commentaires associés à la formation
+            String deleteCommentairesQuery = "DELETE FROM Commentaires WHERE formationId = ?";
+            commentairesStmt = conn.prepareStatement(deleteCommentairesQuery);
+            commentairesStmt.setInt(1,id);
+            commentairesStmt.executeUpdate();
 
             // Suppression de la formation
             String deleteFormationQuery = "DELETE FROM Formations WHERE id = ?";

@@ -1,6 +1,5 @@
 package com.example.TFPackage;
 
-import com.example.LoginPackage.User;
 import com.example.TFPackage.TypeFormation;
 import com.example.TFPackage.TypeFormationDA0;
 import com.example.database.MySQLConnection;
@@ -12,10 +11,6 @@ import java.sql.SQLException;
 import java.util.*;
 import java.sql.Statement;
 
-
-/**
- * 
- */
 public class TypeFormationDAOMySQL extends TypeFormationDA0 {
 
     /**
@@ -24,10 +19,6 @@ public class TypeFormationDAOMySQL extends TypeFormationDA0 {
     public TypeFormationDAOMySQL() {
     }
 
-    /**
-     * @param int id 
-     * @return TypeFormation
-     */
     public TypeFormation getTypeFormationById(int id) {
         Connection conn = MySQLConnection.getConnection();
 
@@ -56,11 +47,6 @@ public class TypeFormationDAOMySQL extends TypeFormationDA0 {
         return typeFormation;
     }
 
-
-    /**
-     * @param int id 
-     * @return
-     */
     public void removeTypeFormation(int id) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -76,8 +62,6 @@ public class TypeFormationDAOMySQL extends TypeFormationDA0 {
             e.printStackTrace();
         }
     }
-
-
 
     /**
      * @return La liste des type de formation présents dans la table
@@ -108,12 +92,6 @@ public class TypeFormationDAOMySQL extends TypeFormationDA0 {
         return typeFormations;
     }
 
-
-    /**
-     * @param String nom 
-     * @param String description 
-     * @return
-     */
     public TypeFormation addTypeFormation(String nom, String description) {
         Connection conn = MySQLConnection.getConnection();
         PreparedStatement stmt = null;

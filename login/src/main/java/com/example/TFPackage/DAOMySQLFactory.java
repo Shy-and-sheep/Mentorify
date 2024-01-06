@@ -3,7 +3,6 @@ package com.example.TFPackage;
 import com.example.TFPackage.AbstractDAOFactory;
 import com.example.TFPackage.TypeFormation;
 import com.example.TFPackage.TypeFormationDAOMySQL;
-import com.example.admin.Typeformation;
 
 import java.util.List;
 

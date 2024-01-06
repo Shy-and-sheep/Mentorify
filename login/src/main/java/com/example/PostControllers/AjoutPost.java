@@ -65,9 +65,6 @@ public class AjoutPost implements Initializable {
 
             String selectedSession = sessions.getSelectionModel().getSelectedItem(); // Récupérer la session sélectionnée dans le ChoiceBox sessions
             int sessionId = mapNomSession.get(selectedSession); // Récupérer l'ID de la session
-
-            // Vous devrez obtenir l'ID de l'auteur depuis quelque part, par exemple à partir d'un objet User connecté
-
             int authorId = UserFacade.getInstance().getUser().getId();
 
             Post addedPost = postFacade.addPost(authorId, contenuText, typeId, 0, sessionId); // Le nbLike est 0 par défaut
