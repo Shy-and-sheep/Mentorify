@@ -1,9 +1,8 @@
-package com.example.TPaiementPackage;
+package com.example.TPaiement;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 
 public class TPaiement {

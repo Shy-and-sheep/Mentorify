@@ -1,4 +1,4 @@
-package com.example.TPaiementPackage;
+package com.example.TPaiement;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
