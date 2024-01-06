@@ -14,6 +14,14 @@ public class MySQLConnection {
     }
 
     public static Connection getConnection() {
+        try {
+            if (conn != null && conn.isClosed()){
+                conn = null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         if (conn == null) {
             try {
                 conn = DriverManager.getConnection(URL, USER, PASSWORD);

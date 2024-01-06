@@ -24,7 +24,7 @@ public class UserFacade {
         return user;
     }
 
-    public User Register(String name, String first_name, String username, String mdp, String email, String statut) {
+    public User Register(String last_name, String first_name, String username, String mdp, String email, String status) {
         // Vérifier si l'utilisateur existe déjà
         /*
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
@@ -37,7 +37,7 @@ public class UserFacade {
 
         // Créer un nouvel utilisateur
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
-        User newUser = factory.CreateUser(name, first_name, username, mdp, email, statut);
+        User newUser = factory.CreateUser(last_name, first_name, username, mdp, email, status);
 
         return newUser;
     }

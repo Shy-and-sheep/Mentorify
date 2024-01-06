@@ -6,7 +6,9 @@ import com.example.login.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,6 +35,9 @@ public class Register {
     @FXML
     private TextField usernameField ;
 
+    @FXML
+    private Label messageLabel;
+
 
     public Register() {
         this.userFacade = UserFacade.getInstance(); // Obtention de l'instance de UserFacade
@@ -50,21 +55,24 @@ public class Register {
         // Valider les champs ici (vérifier qu'ils ne sont pas vides, format de l'email, etc.)
         if (firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || email.isEmpty() || status.isEmpty() || password.isEmpty()) {
             // Affiche un message d'erreur
-            showError("Tous les champs sont requis.");
+            messageLabel.setTextFill(Color.RED);
+            messageLabel.setText("Tous les champs sont requis.");
             return;
         }
 
         // Si la validation est correcte, enregistre les informations dans la base de données
         // Sinon, affiche un message d'erreur approprié
         // Appel de la méthode Register de UserFacade
-        User newUser = userFacade.Register(firstName, lastName, email, status, password,userName);
+        User newUser = userFacade.Register(lastName, firstName, userName, password, email, status);
 
         if (newUser != null) {
             // Utilisateur créé avec succès
-            showSuccess("Utilisateur créé avec succès.");
+            messageLabel.setTextFill(Color.GREEN);
+            messageLabel.setText("Utilisateur créé avec succès.");
         } else {
             // Affiche un message d'erreur
-            showError("L'inscription a échoué. Veuillez réessayer.");
+            messageLabel.setTextFill(Color.RED);
+            messageLabel.setText("L'inscription a échoué. Veuillez réessayer.");
         }
 
     }
@@ -104,24 +112,6 @@ public class Register {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void showError(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur de format de champs");
-        alert.setHeaderText(null); // Pas de titre de l'en-tête
-        alert.setContentText(message);
-
-        alert.showAndWait();
-    }
-
-    private void showSuccess(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Succès");
-        alert.setHeaderText(null); // Pas de titre de l'en-tête
-        alert.setContentText(message);
-
-        alert.showAndWait();
     }
 
 }

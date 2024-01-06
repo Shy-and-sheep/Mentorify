@@ -21,8 +21,8 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
         return this.userDAOMySQL.getUserByCredentials(username, mdp);
     }
 
-    public User CreateUser( String name, String first_name, String username, String mdp, String email,  String statut) {
-        return userDAOMySQL.CreateUser(name, first_name, username, mdp, email, statut);
+    public User CreateUser( String name, String first_name, String username, String mdp, String email,  String status) {
+        return userDAOMySQL.CreateUser(name, first_name, username, mdp, email, status);
 
     }
 
