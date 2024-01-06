@@ -1,4 +1,4 @@
-package com.example.LoginPackage;
+package com.example.UserPackage;
 
 import com.example.database.MySQLConnection;
 
@@ -29,7 +29,7 @@ public class UserDAOMySQL extends UserDA0 {
         User user = null;
 
         try {
-            String query = "SELECT id, username, password, name FROM users WHERE username = ? AND password = ?";
+            String query = "SELECT id, username, password, name, first_name, email, statut FROM users WHERE username = ? AND password = ?";
             stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, mdp);
@@ -40,8 +40,12 @@ public class UserDAOMySQL extends UserDA0 {
                 String retrievedUsername = rs.getString("username");
                 String retrievedPassword = rs.getString("password");
                 String retrievedName = rs.getString("name");
+                String retrievedFirstName = rs.getString("first_name");
+                String retrievedEmail = rs.getString("email");
+                String retrievedStatut = rs.getString("statut");
 
-                user = new User(userId, retrievedPassword, retrievedUsername, retrievedName);
+
+                user = new User(userId, retrievedPassword, retrievedUsername, retrievedName, retrievedFirstName, retrievedEmail, retrievedStatut);
                 System.out.println(user.getName());
                 System.out.println(user.getUsername());
             }
@@ -49,6 +53,11 @@ public class UserDAOMySQL extends UserDA0 {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public User CreateUser(String name, String first_name, String username, String mdp, String email, String statut) {
+        // TODO implement here
+        return null;
     }
 
 }

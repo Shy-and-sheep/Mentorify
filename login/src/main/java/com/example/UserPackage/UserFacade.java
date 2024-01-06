@@ -1,4 +1,4 @@
-package com.example.LoginPackage;
+package com.example.UserPackage;
 
 public class UserFacade {
     private static UserFacade instance;
@@ -22,5 +22,10 @@ public class UserFacade {
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
         this.user = factory.getUserDAO(username, mdp);
         return user;
+    }
+
+    public User Register(String name, String first_name, String username, String mdp, String email, String profile_picture) {
+        // TODO implement here
+        return null;
     }
 }

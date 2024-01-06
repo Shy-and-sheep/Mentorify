@@ -1,8 +1,5 @@
 package com.example.TFPackage;
 
-import com.example.LoginPackage.User;
-import com.example.TFPackage.TypeFormation;
-import com.example.TFPackage.TypeFormationDA0;
 import com.example.database.MySQLConnection;
 
 import java.sql.Connection;

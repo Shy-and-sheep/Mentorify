@@ -11,7 +11,7 @@ module com.example.login {
 
     opens com.example.login to javafx.fxml;
     exports com.example.login;
-    exports com.example.LoginPackage;
+    exports com.example.UserPackage;
     exports com.example.database;
     opens com.example.database to javafx.fxml;
     exports com.example.admin;

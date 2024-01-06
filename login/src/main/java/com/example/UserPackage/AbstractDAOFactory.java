@@ -1,6 +1,4 @@
-package com.example.LoginPackage;
-
-import java.util.*;
+package com.example.UserPackage;
 
 /**
  * Singleton class for AbstractDAOFactory
@@ -30,5 +28,6 @@ public abstract class AbstractDAOFactory {
      */
     public abstract User getUserDAO(String username, String mdp);
 
+    public abstract User CreateUser(String name, String first_name, String username, String mdp, String email, String statut);
 
 }

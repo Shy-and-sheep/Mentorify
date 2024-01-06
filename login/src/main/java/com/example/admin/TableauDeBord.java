@@ -1,7 +1,7 @@
 package com.example.admin;
 
 
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
