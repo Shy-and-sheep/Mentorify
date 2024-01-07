@@ -1,10 +1,10 @@
 import com.example.FormationPackage.FormationFacade;
-import com.example.UserPackage.UserFacade;
+import com.example.TPaiementPackage.TypePaiementFacade;
 import com.example.sessionPackage.Session;
 import com.example.sessionPackage.SessionFacade;
 import com.example.FormationPackage.Formation;
 import com.example.UserPackage.User;
-import com.example.sessionPackage.TypePaiement;
+import com.example.TPaiementPackage.TypePaiement;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,9 +78,7 @@ public class SessionTest {
         Formation formation1 = FormationFacade.getInstance().addFormation("Amel", "FormationTest","Description test", 10,"chèque", 3, 3, "Informatique");
         formations.add(formation1);
 
-        List<TypePaiement> typePaiements = new ArrayList<>();
-        TypePaiement typePaiement1 = new TypePaiement(4,"gratuit");
-        typePaiements.add(typePaiement1);
+        List<TypePaiement> typePaiements = TypePaiementFacade.getInstance().getAllTypePaiement();
 
         Session sessionAdded = sessionFacade.addSession(
                 authorId, nomSession, descriptionSession, formations,

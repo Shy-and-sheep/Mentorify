@@ -2,11 +2,12 @@ package com.example.SessionControllers;
 
 import com.example.FormationPackage.Formation;
 import com.example.FormationPackage.FormationFacade;
+import com.example.TPaiementPackage.TypePaiementFacade;
 import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import com.example.sessionPackage.Session;
 import com.example.sessionPackage.SessionFacade;
-import com.example.sessionPackage.TypePaiement;
+import com.example.TPaiementPackage.TypePaiement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -70,10 +71,7 @@ public class AjoutSession implements Initializable {
 
     Map<String, Integer> formationMap = new HashMap<>();;
 
-    private TypePaiement t1 = new TypePaiement(1, "carte");
-    private TypePaiement t2 = new TypePaiement(2, "chèque");
-    private TypePaiement t3 = new TypePaiement(3, "espèce");
-    private List<TypePaiement> typePaiements = Arrays.asList(t1, t2, t3);
+    private List<TypePaiement> typePaiements = new ArrayList<>();
     private List<ChoiceBox<String>> listeChoiceBoxPaiements = new ArrayList<>();
     Map<String, Integer> typePaiementMap = new HashMap<>();
 
@@ -101,7 +99,8 @@ public class AjoutSession implements Initializable {
         for (ChoiceBox<String> choiceBox : listeChoiceBoxPaiements) {
             String typePaiementSelected = choiceBox.getValue();
             int typePaiementId = typePaiementMap.getOrDefault(typePaiementSelected, -1);
-            TypePaiement tp = new TypePaiement(typePaiementId, typePaiementSelected);
+            TypePaiement tp = TypePaiementFacade.getInstance().getTypePaiementById(typePaiementId);
+            typePaiements.add(tp);
         }
 
         SessionFacade sessionFacade = SessionFacade.getInstance();
@@ -127,6 +126,7 @@ public class AjoutSession implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.formationFacade = FormationFacade.getInstance();
         this.formations = formationFacade.getAllFormation();
+        this.typePaiements = TypePaiementFacade.getInstance().getAllTypePaiement();
 
         for (Formation formation : formations) {
             if (formation != null) {
@@ -167,17 +167,25 @@ public class AjoutSession implements Initializable {
             );
 
             for (ChoiceBox<String> cB : listeChoiceBoxPaiements) {
-                cB.getItems().addAll(
-                        typePaiements.stream()
-                                .map(TypePaiement::getNom)
-                                .toList()
-                );
+                // Création d'une liste temporaire pour les types de paiement restants
+                List<String> remainingTypePaiements = new ArrayList<>();
+
+                // Ajout des types de paiement restants qui n'ont pas été ajoutés à cette ChoiceBox
+                for (TypePaiement tp : typePaiements) {
+                    String nomTypePaiement = tp.getNom();
+                    if (!cB.getItems().contains(nomTypePaiement)) {
+                        remainingTypePaiements.add(nomTypePaiement);
+                    }
+                }
+
+                // Ajout des types de paiement restants à cette ChoiceBox
+                cB.getItems().addAll(remainingTypePaiements);
 
                 // Écouteur pour gérer la sélection d'un type de paiement dans une ChoiceBox
                 cB.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                     if (newValue != null) {
                         for (ChoiceBox<String> cb : listeChoiceBoxPaiements) {
-                            if (!cb.equals(choiceBox)) {
+                            if (!cb.equals(cB)) {
                                 cb.getItems().remove(newValue);
                             }
                         }

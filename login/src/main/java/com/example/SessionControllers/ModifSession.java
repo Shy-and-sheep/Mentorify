@@ -2,12 +2,13 @@ package com.example.SessionControllers;
 
 import com.example.FormationPackage.Formation;
 import com.example.FormationPackage.FormationFacade;
+import com.example.TPaiementPackage.TypePaiement;
+import com.example.TPaiementPackage.TypePaiementFacade;
 import com.example.UserPackage.User;
 import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import com.example.sessionPackage.Session;
 import com.example.sessionPackage.SessionFacade;
-import com.example.sessionPackage.TypePaiement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,11 +70,7 @@ public class ModifSession implements Initializable {
     private List<ChoiceBox<String>> listeChoiceBoxFormations = new ArrayList<>();
 
     Map<String, Integer> formationMap = new HashMap<>();;
-
-    private TypePaiement t1 = new TypePaiement(1, "carte");
-    private TypePaiement t2 = new TypePaiement(2, "chèque");
-    private TypePaiement t3 = new TypePaiement(3, "espèce");
-    private List<TypePaiement> typePaiements = Arrays.asList(t1, t2, t3);
+    private List<TypePaiement> typePaiements = TypePaiementFacade.getInstance().getAllTypePaiement();
     private List<ChoiceBox<String>> listeChoiceBoxPaiements = new ArrayList<>();
     Map<String, Integer> typePaiementMap = new HashMap<>();
 
@@ -102,7 +99,7 @@ public class ModifSession implements Initializable {
         for (ChoiceBox<String> choiceBox : listeChoiceBoxPaiements) {
             String typePaiementSelected = choiceBox.getValue();
             int typePaiementId = typePaiementMap.getOrDefault(typePaiementSelected, -1);
-            TypePaiement tp = new TypePaiement(typePaiementId, typePaiementSelected);
+            TypePaiement tp =TypePaiementFacade.getInstance().getTypePaiementById(typePaiementId);
         }
 
         SessionFacade sessionFacade = SessionFacade.getInstance();

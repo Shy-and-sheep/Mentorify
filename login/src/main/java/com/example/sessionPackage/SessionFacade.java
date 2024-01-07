@@ -1,13 +1,12 @@
 package com.example.sessionPackage;
 
 import com.example.FormationPackage.Formation;
+import com.example.TPaiementPackage.TypePaiement;
 import com.example.UserPackage.User;
+
 
 import java.util.*;
 
-/**
- * 
- */
 public class SessionFacade extends GenericCRUD {
 
     private SessionFacade() {

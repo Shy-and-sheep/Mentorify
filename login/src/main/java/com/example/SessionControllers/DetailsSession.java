@@ -12,8 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import com.example.sessionPackage.TypePaiement;
 import com.example.FormationPackage.Formation;
+import com.example.TPaiementPackage.TypePaiement;
 
 import java.io.IOException;
 import java.net.URL;

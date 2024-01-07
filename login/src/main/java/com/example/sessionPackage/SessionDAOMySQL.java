@@ -1,6 +1,8 @@
 package com.example.sessionPackage;
 
 import com.example.FormationPackage.FormationFacade;
+import com.example.TPaiementPackage.TypePaiement;
+import com.example.TPaiementPackage.TypePaiementFacade;
 import com.example.UserPackage.UserFacade;
 import com.example.database.MySQLConnection;
 import com.example.FormationPackage.Formation;
@@ -102,7 +104,7 @@ public class SessionDAOMySQL extends SessionDA0 {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     int typePayementId = resultSet.getInt("typePayementId");
-                    TypePaiement typePaiement = new TypePaiement(1, "nom");
+                    TypePaiement typePaiement = TypePaiementFacade.getInstance().getTypePaiementById(typePayementId);
                     typespayment.add(typePaiement);
                 }
             }
@@ -228,7 +230,7 @@ public class SessionDAOMySQL extends SessionDA0 {
 
         for (TypePaiement typePaiement : typespayment) {
             if (typePaiement != null) {
-                typePaiementStatement.setInt(1, typePaiement.id);
+                typePaiementStatement.setInt(1, typePaiement.getId());
                 typePaiementStatement.setInt(2, sessionId);
                 typePaiementStatement.executeUpdate();
             }
