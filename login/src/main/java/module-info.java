@@ -9,6 +9,7 @@ module com.example.login {
     exports com.example.login;
     exports com.example.LoginPackage;
     exports com.example.TFPackage;
+    exports com.example.sessionPackage;
     opens com.example.TFPackage to javafx.fxml;
     exports com.example.CommentairePackage;
     opens com.example.CommentairePackage to javafx.fxml;
