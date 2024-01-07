@@ -36,7 +36,7 @@ public class CommentaireTest {
         Formation newFormation = formationFacade.addFormation(userFacade.getUser().getUsername(),"Formation test","description test",2,"Chèque",2,2,"Software");
 
         // ajout d'un commentaire à cette formation
-        Commentaire newCommentaire= commentaireFacade.addCommentaire(newFormation.getId(),"ines","commentaire test de ines",5);
+        Commentaire newCommentaire= commentaireFacade.addCommentaire(newFormation.getId(),null,"ines","commentaire test de ines",5);
         assertNotNull(newFormation);
 
         // Récupération du commentaire ajoutée par son ID
