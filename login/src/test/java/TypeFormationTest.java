@@ -20,19 +20,19 @@ public class TypeFormationTest {
     public void testAddAndRemoveTypeFormation() {
         TypeFormationFacade typeFormationFacade = TypeFormationFacade.getInstance();
 
-        // Ajout d'une nouvelle formation
+        // Ajout d'un nouveau type de formation
         TypeFormation newTypeFormation = typeFormationFacade.addTypeFormation("Nouvelle Formation", "Description de la nouvelle formation");
         assertNotNull(newTypeFormation);
 
-        // Récupération de la formation ajoutée par son ID
+        // Récupération du type de formation ajoutée par son ID
         int newTypeId = newTypeFormation.getId();
         TypeFormation retrievedTypeFormation = typeFormationFacade.getTypeFormationById(newTypeId);
         assertNotNull(retrievedTypeFormation);
 
-        // Suppression de la formation ajoutée
+        // Suppression du type de formation ajoutée
         typeFormationFacade.removeTypeFormation(newTypeId);
 
-        // Vérification que la formation a été supprimée en essayant de la récupérer à nouveau
+        // Vérification que le type de formation a été supprimée en essayant de la récupérer à nouveau
         TypeFormation removedTypeFormation = typeFormationFacade.getTypeFormationById(newTypeId);
         assertNull(removedTypeFormation);
     }
