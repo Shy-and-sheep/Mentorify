@@ -46,6 +46,11 @@
                   <FontAwesomeIcon glyphName="COMMENT" size="2em" />
                </graphic>
             </Button>
+            <Button fx:id="sessionButton" layoutX="173.0" layoutY="13.0" mnemonicParsing="false" onAction="#switchListSessions" prefHeight="48.0" prefWidth="62.0" style="-fx-background-color: BB8A9A;" >
+               <graphic>
+                  <FontAwesomeIcon glyphName="USERS" size="2em" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>

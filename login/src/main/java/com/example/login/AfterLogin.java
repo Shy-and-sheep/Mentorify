@@ -59,4 +59,9 @@ public class AfterLogin {
         Main m = new Main();
         m.changeScene("ListPost-view.fxml");
     }
+
+    public void switchListSessions(ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("listSession-view.fxml");
+    }
 }
