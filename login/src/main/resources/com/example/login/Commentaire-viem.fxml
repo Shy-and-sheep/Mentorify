@@ -14,17 +14,9 @@
    <top>
       <AnchorPane prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="nomFormationLabel" alignment="CENTER" layoutX="105.0" layoutY="11.0" prefHeight="40.0" prefWidth="391.0">
+            <Label fx:id="nomFormationLabel" alignment="CENTER" layoutX="-2.0" layoutY="11.0" prefHeight="40.0" prefWidth="600.0" wrapText="true">
                <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <effect>
-                  <Glow />
-               </effect>
-            </Label>
-            <Label alignment="CENTER" layoutX="4.0" layoutY="13.0" prefHeight="25.0" prefWidth="593.0" text="Commentaires">
-               <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <effect>
                   <Glow />
