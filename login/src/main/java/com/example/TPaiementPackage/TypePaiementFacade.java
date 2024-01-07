@@ -54,6 +54,10 @@ public class TypePaiementFacade extends GenericCRUD {
         return typePaiement;
     }
 
+    public TypePaiement getTypePaiement() {
+        return this.typePaiement;
+    }
+
 
     public TypePaiement addTypePaiement( String nom,  String description) {
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();

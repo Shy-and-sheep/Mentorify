@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.login.ModifierTPaiement"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.TPaiement.ModifierTPaiement">
+    <top>
+        <AnchorPane prefHeight="92.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="135.0" layoutY="29.0" text="Modifier un type de publicaiton">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="208.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="nomField" layoutX="257.0" layoutY="31.0" prefHeight="40.0" prefWidth="220.0" />
+                <Label layoutX="185.0" layoutY="40.0" text="Nom">
+                    <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="119.0" layoutY="92.0" text="Description">
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="descriptionField" layoutX="257.0" layoutY="92.0" prefHeight="108.0" prefWidth="240.0" />
+            </children>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <AnchorPane prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="midifierbutton" layoutX="369.0" layoutY="11.0" mnemonicParsing="false" onAction="#modifiertypePaiement" prefHeight="39.0" prefWidth="123.0" style="-fx-background-color: C6D3B6;" text="Modifier">
+                    <graphic>
+                        <FontAwesomeIcon glyphName="SEND" />
+                    </graphic>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="annulerbutton" layoutX="217.0" layoutY="12.0" mnemonicParsing="false" onAction="#annulationDeModification" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: BB8A9A;" text="Annuler">
+                    <graphic>
+                        <FontAwesomeIcon glyphName="BAN" />
+                    </graphic>
+                    <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </bottom>
+</BorderPane>

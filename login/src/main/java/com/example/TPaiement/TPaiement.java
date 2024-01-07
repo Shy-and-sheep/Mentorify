@@ -76,6 +76,9 @@ public class TPaiement implements Initializable {
                             // TODO : Changer de view ici
                             TypePaiement typePaiment = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + typePaiment.getNom());
+
+                            TypePaiementFacade.getInstance().getTypePaiementById(typePaiment.getId());
+                            handleModifierAction(event);
                         });
                     }
 
@@ -164,6 +167,16 @@ public class TPaiement implements Initializable {
         Main m = new Main();
         try {
             m.changeScene("tableauDeBord.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void handleModifierAction(ActionEvent event) {
+        // code pour changer de scène
+        Main m = new Main();
+        try {
+            m.changeScene("ModifierTPaiement.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
