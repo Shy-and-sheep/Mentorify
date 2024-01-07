@@ -46,11 +46,13 @@
                      </font>
                   </Label>
                   <TextField fx:id="username" layoutX="154.0" layoutY="85.0" promptText="username" />
+                  <Button fx:id="registerButton" layoutX="230.0" layoutY="203.0" mnemonicParsing="false" onAction="#register" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: A793A1;" text="Register" />
                   <Button fx:id="logbutton" layoutX="324.0" layoutY="203.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: C6D3B6;" text="Log in" />
                   <Label fx:id="wrongLogin" layoutX="70.0" layoutY="54.0" textFill="#bb8a9a">
                      <font>
                         <Font name="System Bold" size="17.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

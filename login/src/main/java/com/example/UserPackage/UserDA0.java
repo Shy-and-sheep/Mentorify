@@ -1,4 +1,4 @@
-package com.example.LoginPackage;
+package com.example.UserPackage;
 
 /**
  * 
@@ -18,4 +18,5 @@ public abstract class UserDA0{
      */
     public abstract User getUserByCredentials(String email, String mdp);
 
+    public abstract User CreateUser(String name, String first_name, String username, String mdp, String email, String statut);
 }

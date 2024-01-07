@@ -1,4 +1,4 @@
-package com.example.LoginPackage;
+package com.example.UserPackage;
 
 /**
  * 
@@ -19,6 +19,11 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
      */
     public User getUserDAO(String username, String mdp) {
         return this.userDAOMySQL.getUserByCredentials(username, mdp);
+    }
+
+    public User CreateUser( String name, String first_name, String username, String mdp, String email,  String status) {
+        return userDAOMySQL.CreateUser(name, first_name, username, mdp, email, status);
+
     }
 
 }

@@ -1,14 +1,11 @@
 package com.example.login;
 
-import com.example.LoginPackage.User;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.User;
+import com.example.UserPackage.UserFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 import java.io.IOException;
 
@@ -48,7 +45,9 @@ public class AfterLogin {
 
     public void adminTabDeBord(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("tableauDeBord.fxml");}
+
+        m.changeScene("tableauDeBord.fxml");
+    }
 
     public void goToFormation(ActionEvent event) throws IOException {
         Main m = new Main();

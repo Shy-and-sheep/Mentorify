@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.TPaiement.TPaiement">
+    <top>
+        <AnchorPane prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="135.0" layoutY="29.0" text="Types de Paiements">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER" spacing="10">
+            <children>
+                <TableView fx:id="listPaiement" style="-fx-background-color: D8CDCD;" />
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <AnchorPane prefHeight="105.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="retourButton" layoutX="198.0" layoutY="29.0" mnemonicParsing="false" text="Retour" style="-fx-background-color: BB8A9A;" onAction="#handleRetourLinkAction">
+                    <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="ajouterButton" layoutX="346.0" layoutY="28.0" mnemonicParsing="false" text="Ajouter" style="-fx-background-color: BFB0B0;" onAction="#handleAjouter">
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </bottom>
+</BorderPane>
+
+
+
+
+
+
+
+
+<!--
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.TPaiement.TPaiement"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Text text="Types de Paiements" style="-fx-font-size: 20px;"/>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="typeColumn" text="Type" minWidth="200"/>
+                <TableColumn fx:id="editColumn" text="" minWidth="50"/>
+                <TableColumn fx:id="deleteColumn" text="" minWidth="50"/>
+            </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Retour" onAction="#handleRetour"/>
+            <Button text="Ajouter" style="-fx-font-size: 14px;" onAction="#handleAjouter"/>
+        </HBox>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+    </VBox>
+</AnchorPane>
+-->

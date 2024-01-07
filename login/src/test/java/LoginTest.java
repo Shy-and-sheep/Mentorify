@@ -1,6 +1,6 @@
 
-import com.example.LoginPackage.UserFacade;
-import com.example.LoginPackage.User;
+import com.example.UserPackage.UserFacade;
+import com.example.UserPackage.User;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
