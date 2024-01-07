@@ -4,6 +4,7 @@ import com.example.TPPackage.TypePost;
 import com.example.TPPackage.TypePostFacade;
 import com.example.TPaiementPackage.TypePaiement;
 import com.example.TPaiementPackage.TypePaiementFacade;
+import com.example.login.Main;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
+
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.*;
@@ -111,6 +114,9 @@ public class TPaiement implements Initializable {
                             // TODO : Supprimer l'element courant ici
                             TypePaiement typePaiment = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + typePaiment.getNom());
+                            TypePaiementFacade typePaiementFacade = TypePaiementFacade.getInstance();
+                            typePaiementFacade.removeTypePaiement(typePaiment.getId());
+                            getTableView().getItems().remove(getIndex());
                         });
                     }
 
@@ -142,7 +148,25 @@ public class TPaiement implements Initializable {
 
     @FXML
     private void handleAjouter(ActionEvent event) {
-        // Logique pour le bouton Ajouter
+        // code pour changer de scène
+        Main m = new Main();
+        try {
+            m.changeScene("afterAjoutTPaiement.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    private void handleRetourLinkAction(ActionEvent event) {
+        // code pour changer de scène
+        Main m = new Main();
+        try {
+            m.changeScene("tableauDeBord.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

@@ -30,12 +30,12 @@
     <bottom>
         <AnchorPane prefHeight="105.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="retourButton" layoutX="198.0" layoutY="29.0" mnemonicParsing="false" text="Retour" style="-fx-background-color: BB8A9A;">
+                <Button fx:id="retourButton" layoutX="198.0" layoutY="29.0" mnemonicParsing="false" text="Retour" style="-fx-background-color: BB8A9A;" onAction="#handleRetourLinkAction">
                     <font>
                         <Font name="System Bold Italic" size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="ajouterButton" layoutX="346.0" layoutY="28.0" mnemonicParsing="false" text="Ajouter" style="-fx-background-color: BFB0B0;">
+                <Button fx:id="ajouterButton" layoutX="346.0" layoutY="28.0" mnemonicParsing="false" text="Ajouter" style="-fx-background-color: BFB0B0;" onAction="#handleAjouter">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
