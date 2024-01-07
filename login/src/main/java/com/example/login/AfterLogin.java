@@ -20,6 +20,9 @@ public class AfterLogin {
     @FXML
     private Button tableaudebord;
 
+    @FXML
+    private Button formationbutton;
+
     private UserFacade userFacade;
 
 
@@ -42,7 +45,22 @@ public class AfterLogin {
 
     public void adminTabDeBord(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("tableauDeBord.fxml");;
+
+        m.changeScene("tableauDeBord.fxml");
     }
 
+    public void goToFormation(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("Formation-view.fxml");;}
+
+
+    public void switchListPost(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("ListPost-view.fxml");
+    }
+
+    public void switchListSessions(ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("listSession-view.fxml");
+    }
 }

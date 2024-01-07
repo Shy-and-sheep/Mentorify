@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F7F3F3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SessionControllers.ListSessions">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F7F3F3;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="retourBtn" layoutX="31.0" layoutY="14.0" mnemonicParsing="false" onAction="#retourAccueil" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #BB8A9A;" text="Retour" />
+            <Label fx:id="titre" layoutX="163.0" layoutY="17.0" text="Liste des sessions disponibles">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listSession" layoutX="30.0" layoutY="87.0" prefHeight="218.0" prefWidth="238.0" />
+            <FontAwesomeIcon layoutX="315.0" layoutY="110.0" size="2em" glyphName="EUR"/>
+            <FontAwesomeIcon layoutX="384.0" layoutY="110.0" size="2em" glyphName="CALENDAR"/>
+            <FontAwesomeIcon layoutX="510.0" layoutY="110.0" size="2em" glyphName="USERS"/>
+            <Label fx:id="prixSession" layoutX="335.0" layoutY="91.0"/>
+            <Label fx:id="dateSession" layoutX="420.0" layoutY="91.0" />
+            <Label fx:id="nbInscrits" layoutX="549.0" layoutY="91.0" />
+            <Label fx:id="descriptionSession" layoutX="296.0" layoutY="146.0" prefHeight="148.0" prefWidth="286.0" style="-fx-background-color: #D8CDCD;" />
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ajoutBtn" layoutX="90.0" layoutY="34.0" mnemonicParsing="false" onAction="#ajouterSession" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #523D41;" text="Ajouter" textFill="WHITE" />
+            <Button fx:id="detailBtn" layoutX="324.0" layoutY="27.0" mnemonicParsing="false" onAction="#detailsSession" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: #D8CDCD;"  >
+               <graphic>
+                  <FontAwesomeIcon glyphName="EYE" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="modifBtn" layoutX="398.0" layoutY="26.0" mnemonicParsing="false" onAction="#modfiSession" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: #C6D3B6;" >
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" size="2em" />
+               </graphic>
+            </Button>
+            <Button layoutX="471.0" layoutY="26.0" mnemonicParsing="false" prefHeight="51.0" onAction="#suppSession" prefWidth="59.0" style="-fx-background-color: #BB8A9A;" >
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="2em" text=" " wrappingWidth="34.0" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
