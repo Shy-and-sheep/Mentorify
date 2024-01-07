@@ -47,5 +47,7 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
     public void desinscriptionFormationDAO(int userId,int idFormation){
         this.FormationDAOMySQL.desinscriptionFormation(userId,idFormation);
     }
+    public List<Formation> getFormationByTF(String TF){return this.FormationDAOMySQL.getFormationByTF(TF);}
+
 
 }

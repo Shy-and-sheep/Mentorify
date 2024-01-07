@@ -12,37 +12,19 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.formation.ViewFormation">
    <bottom>
-      <AnchorPane prefHeight="54.0" prefWidth="907.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="retourbutton" layoutX="20.0" layoutY="-2.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: BB8A9A;" text="Retour">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-            <Label fx:id="inscriptionLabel" alignment="CENTER" layoutX="138.0" layoutY="7.0" prefHeight="16.0" prefWidth="448.0">
-               <font>
-                  <Font name="System Bold Italic" size="17.0" />
-               </font>
-            </Label>
-            <Button layoutX="440.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="36.0" prefWidth="139.0" style="-fx-background-color: C6D3B6;" text="Voir les avis">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="23.0" layoutY="12.0" prefHeight="326.0" prefWidth="554.0" style="-fx-background-color: BFB0B0;">
+            <Pane layoutX="23.0" layoutY="21.0" prefHeight="315.0" prefWidth="554.0" style="-fx-background-color: D8CDCD;">
                <children>
-                  <Label fx:id="typeFormationLabel" layoutX="16.0" layoutY="155.0" prefHeight="16.0" prefWidth="528.0">
+                  <Label fx:id="typeFormationLabel" layoutX="170.0" layoutY="220.0" prefHeight="19.0" prefWidth="360.0" text="type formation">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="userName" alignment="TOP_LEFT" layoutX="44.0" layoutY="40.0" prefHeight="19.0" prefWidth="318.0" textFill="#523d41">
+                  <Label fx:id="userName" alignment="TOP_LEFT" layoutX="58.0" layoutY="78.0" prefHeight="19.0" prefWidth="463.0" text="autheur" textFill="#523d41">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -58,61 +40,79 @@
                         <Glow />
                      </effect>
                   </Label>
-                  <Label layoutX="14.0" layoutY="78.0" text="Description de la formation : ">
+                  <Label layoutX="16.0" layoutY="108.0" text="Description de la formation : ">
                      <font>
                         <Font name="FreeMono" size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="99.0" prefHeight="19.0" prefWidth="531.0">
+                  <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="21.0" layoutY="126.0" prefHeight="89.0" prefWidth="500.0" text="description" wrapText="true">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#523d41" glyphName="USER" layoutX="14.0" layoutY="59.0" size="2em" />
-                  <Label layoutX="14.0" layoutY="136.0" text="Type de formation : ">
+                  <FontAwesomeIcon fill="#523d41" glyphName="USER" layoutX="23.0" layoutY="97.0" size="2em" />
+                  <Label layoutX="14.0" layoutY="222.0" text="Type de formation : ">
                      <font>
                         <Font name="FreeMono" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="189.0">
+                  <Label fx:id="inscription2Label" layoutX="328.0" layoutY="17.0" prefHeight="18.0" prefWidth="219.0">
                      <font>
-                        <Font name="FreeMono" size="13.0" />
+                        <Font name="FreeMono" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="placeLabel" layoutX="59.0" layoutY="207.0" prefHeight="21.0" prefWidth="91.0" textFill="#523d41">
+                  <Label fx:id="placeLabel" layoutX="271.0" layoutY="272.0" prefHeight="21.0" prefWidth="137.0" text="place" textFill="#523d41">
                      <font>
                         <Font name="System Bold Italic" size="17.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#523d41" glyphName="EUR" layoutX="203.0" layoutY="227.0" size="2em" />
-                  <Label fx:id="prixInput" layoutX="234.0" layoutY="207.0" prefHeight="21.0" prefWidth="116.0" textFill="#523d41">
+                  <FontAwesomeIcon fill="#523d41" glyphName="EUR" layoutX="401.0" layoutY="292.0" size="2em" />
+                  <Label fx:id="prixInput" layoutX="424.0" layoutY="272.0" prefHeight="21.0" prefWidth="116.0" text="prix" textFill="#523d41">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="422.0" layoutY="197.0" text="Paiement par ">
+                  <Label layoutX="16.0" layoutY="247.0" text="Paiement par ">
                      <font>
                         <Font name="FreeMono" size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="typepaiementInput" alignment="CENTER" layoutX="410.0" layoutY="211.0" prefHeight="19.0" prefWidth="126.0" textFill="#523d41">
+                  <Label fx:id="typepaiementInput" alignment="TOP_LEFT" layoutX="125.0" layoutY="245.0" prefHeight="19.0" prefWidth="382.0" text="TP" textFill="#523d41">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="sinscrirebutton" layoutX="236.0" layoutY="268.0" mnemonicParsing="false" onAction="#inscription" style="-fx-background-color: C6D3B6;" text="S'inscrire">
+                  <FontAwesomeIcon fill="#523d41" glyphName="USERS" layoutX="222.0" layoutY="293.0" size="2em" />
+                  <Label layoutX="14.0" layoutY="54.0" text="Formation proposée par : ">
                      <font>
-                        <Font name="System Bold Italic" size="17.0" />
+                        <Font name="FreeMono" size="13.0" />
                      </font>
-                  </Button>
-                  <Button fx:id="sedesinscrirebutton" layoutX="365.0" layoutY="268.0" mnemonicParsing="false" onAction="#desinscription" style="-fx-background-color: BB8A9A;" text="Se désinscrire">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <FontAwesomeIcon fill="#523d41" glyphName="USERS" layoutX="21.0" layoutY="227.0" size="2em" />
+                  </Label>
                </children>
             </Pane>
+            <Button fx:id="sinscrirebutton" layoutX="172.0" layoutY="345.0" mnemonicParsing="false" onAction="#inscription" style="-fx-background-color: C6D3B6;" text="S'inscrire">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="sedesinscrirebutton" layoutX="285.0" layoutY="345.0" mnemonicParsing="false" onAction="#desinscription" style="-fx-background-color: BB8A9A;" text="Se désinscrire">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="437.0" layoutY="345.0" mnemonicParsing="false" onAction="#goToComments" prefHeight="13.0" prefWidth="100.0" style="-fx-background-color: #332304;" text=" Avis" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="COMMENT" />
+               </graphic>
+            </Button>
+            <Button fx:id="retourbutton" layoutX="31.0" layoutY="345.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: BB8A9A;" text="Retour">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

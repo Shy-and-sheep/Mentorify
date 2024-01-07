@@ -42,4 +42,5 @@ public abstract class AbstractDAOFactory {
     public abstract void desinscriptionFormationDAO(int userId,int idFormation);
 
 
+    public abstract List<Formation> getFormationByTF(String TF);
 }

@@ -3,12 +3,16 @@ package com.example.formation;
 import com.example.FormationPackage.FormationFacade;
 import com.example.FormationPackage.Formation;
 
+import com.example.PostsPackage.Post;
+import com.example.TFPackage.TypeFormation;
+import com.example.TFPackage.TypeFormationFacade;
 import com.example.login.Main;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
@@ -40,7 +44,11 @@ public class FormationController implements Initializable {
     private Label prixLabel;
     @FXML
     private Label placeLabel;
+    @FXML
+    public ChoiceBox<String> typeFormation;
+    private List<TypeFormation> typeformations;
 
+    private TypeFormationFacade typeFormationFacade;
     private FormationFacade formationFacade;
     @FXML
     private ListView<String> listFormations;
@@ -61,7 +69,7 @@ public class FormationController implements Initializable {
 
             formationname.setText(currentFormation.getNom());
             descriptionLabel.setText(currentFormation.getDescription());
-            prixLabel.setText(currentFormation.getPrix() + " €");
+            prixLabel.setText(String.valueOf(currentFormation.getPrix()) + " €");
             placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());
         }
 
@@ -75,10 +83,15 @@ public class FormationController implements Initializable {
                 this.formationFacade.getFormationById(currentFormation.getId());
                 formationname.setText(currentFormation.getNom());
                 descriptionLabel.setText(currentFormation.getDescription());
-                prixLabel.setText(currentFormation.getPrix() + " €");
+                prixLabel.setText(String.valueOf(currentFormation.getPrix()) + " €");
                 placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());
             }
         });
+        this.typeformations = typeFormationFacade.getInstance().getAllTypeFormation();
+        for (TypeFormation type : typeformations){
+            typeFormation.getItems().add(type.getNom());
+        }
+        typeFormation.setOnAction(this::onSelectTypeFormation);
     }
 
 
@@ -98,10 +111,12 @@ public class FormationController implements Initializable {
             List<String> formationNom = tabFormation.stream().map(Formation::getNom).collect(Collectors.toList());
 
             // Effacez les labels
-            formationname.setText("");
-            descriptionLabel.setText("");
-            prixLabel.setText("");
-            placeLabel.setText("");
+            currentFormation = tabFormation.get(0); // Sélectionne la première formation par défaut
+
+            formationname.setText(currentFormation.getNom());
+            descriptionLabel.setText(currentFormation.getDescription());
+            prixLabel.setText(String.valueOf(currentFormation.getPrix()) + " €");
+            placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());
 
 
             // Mettre à jour la ListView avec les nouvelles données
@@ -125,6 +140,39 @@ public class FormationController implements Initializable {
     public void backToAfterLogin(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("afterLogin.fxml");
+    }
+
+    @FXML
+    void onSelectTypeFormation(ActionEvent event) {
+        String selectedType = typeFormation.getValue();
+        if (selectedType != null) {
+            List<Formation> formationsByType = formationFacade.getFormationTF(selectedType);
+            tabFormation.clear();
+            tabFormation.addAll(formationsByType);
+            listFormations.getItems().clear();
+            List<String> formationContenu = tabFormation.stream().map(Formation::getDescription).collect(Collectors.toList());
+            listFormations.getItems().addAll(formationContenu);
+            currentFormation = tabFormation.get(0); // Sélectionne la première formation par défaut
+
+            formationname.setText(currentFormation.getNom());
+            descriptionLabel.setText(currentFormation.getDescription());
+            prixLabel.setText(String.valueOf(currentFormation.getPrix()) + " €");
+            placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());
+
+        }
+        else {
+            List<Formation> formationsByType = FormationFacade.getInstance().getAllFormation();
+            tabFormation.clear();
+            tabFormation.addAll(formationsByType);
+            listFormations.getItems().clear();
+            List<String> formationContenu = tabFormation.stream().map(Formation::getDescription).collect(Collectors.toList());
+            listFormations.getItems().addAll(formationContenu);
+            currentFormation = tabFormation.get(0); // Sélectionne la première formation par défaut
+
+            formationname.setText(currentFormation.getNom());
+            descriptionLabel.setText(currentFormation.getDescription());
+            prixLabel.setText(String.valueOf(currentFormation.getPrix()) + " €");
+            placeLabel.setText((currentFormation.getNbPlacesMax() - currentFormation.getNbPlacesDispo()) + "/" + currentFormation.getNbPlacesMax());        }
     }
 
 }

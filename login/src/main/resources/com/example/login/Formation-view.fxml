@@ -2,24 +2,29 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.formation.FormationController">
    <top>
       <AnchorPane prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="236.0" layoutY="25.0" text="Formations" textFill="#523d41">
+            <Label layoutX="215.0" layoutY="23.0" text="Formations" textFill="#523d41">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
                <effect>
                   <Glow />
                </effect>
+               <graphic>
+                  <FontAwesomeIcon glyphName="GRADUATION_CAP" size="1.5em" />
+               </graphic>
             </Label>
             <Button fx:id="retour" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#backToAfterLogin" prefHeight="33.0" prefWidth="103.0" style="-fx-background-color: BB8A9A;" text="Retour">
                <font>
@@ -29,14 +34,6 @@
                   <FontAwesomeIcon glyphName="CHEVRON_LEFT" />
                </graphic>
             </Button>
-            <Button fx:id="ajouterbutton" layoutX="462.0" layoutY="21.0" mnemonicParsing="false" onAction="#ajouterFormation" style="-fx-background-color: BFB0B0;" text="Ajouter">
-               <graphic>
-                  <FontAwesomeIcon glyphName="PLUS" />
-               </graphic>
-               <font>
-                  <Font name="System Bold Italic" size="17.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </top>
@@ -44,9 +41,54 @@
       <AnchorPane prefHeight="207.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane prefHeight="195.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="294.0" prefWidth="605.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="listFormations" editable="true" layoutX="99.0" prefHeight="192.0" prefWidth="402.0" />
+            <Pane layoutX="336.0" layoutY="55.0" prefHeight="150.0" prefWidth="256.0" style="-fx-background-color: D8CDCD;">
+               <children>
+                  <FontAwesomeIcon glyphName="USERS" layoutX="14.0" layoutY="133.0" size="2em" />
+                  <Label fx:id="formationname" alignment="CENTER" layoutY="8.0" prefHeight="21.0" prefWidth="256.0" text="nom">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="7.0" layoutY="36.0" prefHeight="70.0" prefWidth="243.0" text="grosse description juste pour tester et pas etre le dindon du village dans ce projet " wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon glyphName="EUR" layoutX="135.0" layoutY="133.0" size="2em" />
+                  <Label fx:id="prixLabel" layoutX="156.0" layoutY="113.0" prefHeight="21.0" prefWidth="99.0" text="prix" wrapText="true">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="placeLabel" layoutX="54.0" layoutY="113.0" prefHeight="21.0" prefWidth="81.0" text="place">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ListView fx:id="listFormations" editable="true" fixedCellSize="0.0" layoutX="27.0" layoutY="56.0" prefHeight="189.0" prefWidth="285.0" style="-fx-background-color: D8CDCD;" />
+            <ChoiceBox fx:id="typeFormation" layoutX="32.0" layoutY="14.0" prefWidth="150.0" style="-fx-background-color: D8CDCD;" />
+            <Button fx:id="supprimerbutton" layoutX="512.0" layoutY="213.0" mnemonicParsing="false" onAction="#removeFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BB8A9A;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="2em" text=" " wrappingWidth="34.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="modifierbutton" layoutX="449.0" layoutY="213.0" mnemonicParsing="false" onAction="#setFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: C6D3B6;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="viewbutton" layoutX="387.0" layoutY="213.0" mnemonicParsing="false" onAction="#viewFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BFB0B0;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="EYE" size="2em" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>
@@ -54,55 +96,16 @@
       <AnchorPane prefHeight="207.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="137.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="62.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="formationname" alignment="CENTER" layoutY="27.0" prefHeight="16.0" prefWidth="400.0">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <effect>
-                  <Glow />
-               </effect>
-            </Label>
-            <Button fx:id="supprimerbutton" layoutX="519.0" layoutY="41.0" mnemonicParsing="false" onAction="#removeFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BB8A9A;">
+            <Button fx:id="ajouterbutton" layoutX="261.0" mnemonicParsing="false" onAction="#ajouterFormation" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
                <graphic>
-                  <FontAwesomeIcon glyphName="TRASH" size="2em" text=" " wrappingWidth="34.0" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />
                </graphic>
-            </Button>
-            <Button fx:id="modifierbutton" layoutX="461.0" layoutY="41.0" mnemonicParsing="false" onAction="#setFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: C6D3B6;">
-               <graphic>
-                  <FontAwesomeIcon glyphName="PENCIL" size="2em" />
-               </graphic>
-            </Button>
-            <Button fx:id="viewbutton" layoutX="400.0" layoutY="41.0" mnemonicParsing="false" onAction="#viewFormation" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BFB0B0;">
-               <graphic>
-                  <FontAwesomeIcon glyphName="EYE" size="2em" />
-               </graphic>
-            </Button>
-            <Label alignment="CENTER" layoutX="200.0" layoutY="92.0" prefHeight="26.0" prefWidth="49.0">
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>
-               <graphic>
-                  <FontAwesomeIcon glyphName="EUR" size="1.5em" />
-               </graphic>
-            </Label>
-            <Label fx:id="descriptionLabel" alignment="CENTER" layoutX="6.0" layoutY="53.0" prefHeight="31.0" prefWidth="389.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="prixLabel" layoutX="249.0" layoutY="95.0" prefHeight="21.0" prefWidth="125.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="placeLabel" layoutX="99.0" layoutY="95.0" prefHeight="21.0" prefWidth="81.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <FontAwesomeIcon glyphName="USERS" layoutX="63.0" layoutY="112.0" size="1.5em" />
+            </Button>
          </children>
       </AnchorPane>
    </bottom>

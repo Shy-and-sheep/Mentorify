@@ -62,4 +62,9 @@ public class FormationFacade extends GenericCRUD {
         factory.desinscriptionFormationDAO(userId, idFormation);
     }
 
+    public List<Formation> getFormationTF(String TF){
+        AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
+        this.formations = factory.getFormationByTF(TF);
+        return this.formations;
+     }
 }

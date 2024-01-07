@@ -7,20 +7,24 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.formation.CommentaireController">
    <top>
-      <AnchorPane prefHeight="57.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#retourFormations" style="-fx-background-color: BB8A9A;" text="Retour">
-               <font>
-                  <Font name="System Bold Italic" size="17.0" />
-               </font>
-            </Button>
             <Label fx:id="nomFormationLabel" alignment="CENTER" layoutX="105.0" layoutY="11.0" prefHeight="40.0" prefWidth="391.0">
                <font>
                   <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="13.0" prefHeight="25.0" prefWidth="593.0" text="Commentaires">
+               <font>
+                  <Font name="System Bold" size="20.0" />
                </font>
                <effect>
                   <Glow />
@@ -30,10 +34,40 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="301.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="listCommentaire" layoutX="97.0" layoutY="29.0" prefHeight="207.0" prefWidth="406.0" />
-            <Label fx:id="moyenneNoteLabel" alignment="CENTER" layoutX="96.0" layoutY="-12.0" prefHeight="25.0" prefWidth="408.0">
+            <Pane layoutX="320.0" layoutY="31.0" prefHeight="172.0" prefWidth="260.0" style="-fx-background-color: D8CDCD;">
+               <children>
+                  <Label fx:id="authorName" layoutX="68.0" layoutY="14.0" prefHeight="21.0" prefWidth="247.0" text="autheur">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon glyphName="USER" layoutX="26.0" layoutY="33.0" size="2em" />
+                  <Label fx:id="noteLabel" layoutX="26.0" layoutY="44.0" prefHeight="21.0" prefWidth="304.0" text="note">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="contenuLabel" alignment="TOP_LEFT" layoutX="6.0" layoutY="72.0" prefHeight="89.0" prefWidth="248.0" text="contenu" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ListView fx:id="listCommentaire" layoutX="31.0" layoutY="31.0" prefHeight="227.0" prefWidth="270.0" style="-fx-background-color: D8CDCD;" />
+            <Button layoutX="429.0" layoutY="219.0" mnemonicParsing="false" onAction="#modifyComments" prefHeight="39.0" prefWidth="0.0" style="-fx-background-color: C6D3B6;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" size="2em" text=" " wrappingWidth="38.285715103149414" />
+               </graphic>
+            </Button>
+            <Button fx:id="deletebutton" layoutX="504.0" layoutY="219.0" mnemonicParsing="false" onAction="#deleteComments" prefHeight="39.0" prefWidth="58.0" style="-fx-background-color: BB8A9A;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="2em" />
+               </graphic>
+            </Button>
+            <Label fx:id="moyenneNoteLabel" alignment="CENTER" layoutX="172.0" layoutY="-7.0" prefHeight="27.0" prefWidth="258.0" style="-fx-background-color: D8CDCD;">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
@@ -45,39 +79,21 @@
       </AnchorPane>
    </center>
    <bottom>
-      <AnchorPane prefHeight="91.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="64.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="authorName" layoutX="84.0" layoutY="4.0" prefHeight="21.0" prefWidth="247.0">
+            <Button layoutX="224.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterComm" prefHeight="28.0" prefWidth="174.0" style="-fx-background-color: #332304;" text="Commenter" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="COMMENT" />
+               </graphic>
                <font>
                   <Font name="System Bold Italic" size="17.0" />
                </font>
-            </Label>
-            <FontAwesomeIcon glyphName="USER" layoutX="54.0" layoutY="23.0" size="2em" />
-            <Label fx:id="contenuLabel" layoutX="53.0" layoutY="49.0" prefHeight="31.0" prefWidth="518.0">
+            </Button>
+            <Button layoutX="115.0" layoutY="16.0" mnemonicParsing="false" onAction="#retourFormations" prefHeight="28.0" style="-fx-background-color: BB8A9A;" text="Retour">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <Button layoutX="370.0" layoutY="8.0" mnemonicParsing="false" onAction="#modifyComments" prefHeight="39.0" prefWidth="0.0" style="-fx-background-color: C6D3B6;">
-               <graphic>
-                  <FontAwesomeIcon glyphName="PENCIL" size="2em" text=" " wrappingWidth="38.285715103149414" />
-               </graphic>
             </Button>
-            <Button fx:id="deletebutton" layoutX="440.0" layoutY="8.0" mnemonicParsing="false" onAction="#deleteComments" prefHeight="39.0" prefWidth="58.0" style="-fx-background-color: BB8A9A;">
-               <graphic>
-                  <FontAwesomeIcon glyphName="TRASH" size="2em" />
-               </graphic>
-            </Button>
-            <Button layoutX="511.0" layoutY="8.0" mnemonicParsing="false" onAction="#ajouterComm" prefHeight="39.0" prefWidth="58.0" style="-fx-background-color: BFB0B0;">
-               <graphic>
-                  <FontAwesomeIcon glyphName="PLUS" size="2EM" />
-               </graphic>
-            </Button>
-            <Label fx:id="noteLabel" layoutX="55.0" layoutY="30.0" prefHeight="21.0" prefWidth="304.0">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </bottom>

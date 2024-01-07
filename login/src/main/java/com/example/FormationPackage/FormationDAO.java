@@ -23,4 +23,5 @@ public abstract class FormationDAO {
 
     public abstract void desinscriptionFormation(int userId,int idFormation);
 
+    public abstract List<Formation> getFormationByTF(String TF);
 }

@@ -1,5 +1,6 @@
 package com.example.FormationPackage;
 
+import com.example.PostsPackage.Post;
 import com.example.TFPackage.TypeFormation;
 import com.example.database.MySQLConnection;
 import com.example.FormationPackage.Formation;
@@ -277,6 +278,39 @@ public class FormationDAOMySQL extends FormationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Formation> getFormationByTF(String TF) {
+        Connection conn = MySQLConnection.getConnection();
+        PreparedStatement statement = null;
+        List<Formation> formations = new ArrayList<>();
+
+        try{
+            String query = "SELECT id,nom,description,prix,nbPlacesMax,nbPlacesDispo,typeFormation,authorName,typespayment FROM Formations WHERE typeFormation = ?";
+            statement = conn.prepareStatement(query);
+            statement.setString(1, TF);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                int formationId = rs.getInt("id");
+                String authorName = rs.getString("authorName");
+                String nom = rs.getString("nom");
+                String description = rs.getString("description");
+                double prix = rs.getDouble("prix");
+                String typespayment = rs.getString("typespayment");
+                int nbPlacesMax = rs.getInt("nbPlacesMax");
+                int nbPlacesDispo = rs.getInt("nbPlacesDispo");
+                String typeFormation = rs.getString("typeFormation");
+
+                Formation formation = new Formation(formationId,authorName,nom,description,prix,typespayment,nbPlacesMax,nbPlacesDispo,typeFormation);
+                formations.add(formation);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return formations;
+
     }
 
 }

@@ -31,7 +31,7 @@ public class ViewFormation implements Initializable{
     private Label prixInput;
 
     @FXML
-    private Label inscriptionLabel;
+    private Label inscription2Label;
     private UserFacade userFacade;
 
     private FormationFacade formationFacade;
@@ -64,18 +64,16 @@ public class ViewFormation implements Initializable{
         int userId = userFacade.getInstance().getUser().getId();
         int formationId = formationFacade.getInstance().getFormation().getId();
         formationFacade.getInstance().inscriptionFormation(userId,formationId);
-        inscriptionLabel.setText("Inscription validée !");
-        Main m = new Main();
-        m.changeScene("Formation-view.fxml");
+        inscription2Label.setText("Inscription validée !");
+
     }
 
     public void desinscription(ActionEvent event) throws IOException {
         int userId = userFacade.getInstance().getUser().getId();
         int formationId = formationFacade.getInstance().getFormation().getId();
         formationFacade.getInstance().desinscriptionFormation(userId,formationId);
-        inscriptionLabel.setText("Vous n'êtes plus inscrit !");
-        Main m = new Main();
-        m.changeScene("Formation-view.fxml");
+        inscription2Label.setText("Inscription annulée !");
+
     }
     public void goToComments(ActionEvent event) throws IOException {
         Main m = new Main();
