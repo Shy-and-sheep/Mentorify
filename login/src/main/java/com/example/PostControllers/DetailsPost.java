@@ -96,4 +96,11 @@ public class DetailsPost implements Initializable {
         Main m = new Main();
         m.changeScene("ListPost-view.fxml");
     }
+
+    public void likerPost(ActionEvent actionEvent) {
+        int nombreLike = post.getNbLike() + 1;
+        PostFacade.getInstance().setPost(post.getId(), post.getAuteurId(), post.getContenu(), post.getTypePostId(), nombreLike, post.getSessionId());
+        post = PostFacade.getInstance().getCurrentPost();
+        nbLikes.setText(String.valueOf(post.getNbLike()));
+    }
 }
