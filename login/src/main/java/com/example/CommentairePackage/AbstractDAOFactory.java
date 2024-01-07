@@ -29,7 +29,9 @@ public abstract class AbstractDAOFactory {
     public abstract Commentaire getCommentaireByIdDAO(int id);
     public abstract List<Commentaire> getAllCommentaireDAO();
     public void removeCommentaireDAO(int id) {}
-    public abstract Commentaire setCommentaireDAO(int commentaireId, int formationId, String authorName, String contenu, int note);
-    public abstract Commentaire addCommentaireDAO(int formationId,String authorName,String contenu,int note);
-    public abstract List<Commentaire> getCommentairesByFormationIdDAO(int formationId);
+    public abstract Commentaire setCommentaireDAO(int commentaireId, Integer formationId, Integer postId, String authorName, String contenu, int note);
+    public abstract Commentaire addCommentaireDAO(Integer formationId, Integer postId,String authorName,String contenu,int note);
+    public abstract List<Commentaire> getCommentairesByFormationIdDAO(Integer formationId);
+    public abstract List<Commentaire> getCommentairesByPostIdDAO(Integer postId);
+
 }

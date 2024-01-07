@@ -46,7 +46,7 @@ public class ModifierCommentaire implements Initializable {
     }
 
     public void modificationcommentaire(ActionEvent event) throws IOException {
-        CommentaireFacade.getInstance().setCommentaire(commentaireId,formationId,author,contenuInput.getText().toString(),noteChoiceBox.getValue());
+        CommentaireFacade.getInstance().setCommentaire(commentaireId,formationId,null, author,contenuInput.getText().toString(),noteChoiceBox.getValue());
         Main m = new Main();
         m.changeScene("Commentaire-viem.fxml");
     }

@@ -39,24 +39,29 @@ public class CommentaireFacade extends GenericCRUD {
         return commentaires;
     }
 
-    public Commentaire addCommentaire(int formationId, String authorName, String contenu, int note) {
+    public Commentaire addCommentaire(Integer formationId, Integer postId, String authorName, String contenu, int note) {
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
-        this.commentaire = factory.addCommentaireDAO(formationId,authorName,contenu,note);
+        this.commentaire = factory.addCommentaireDAO(formationId,postId, authorName,contenu,note);
         return commentaire;
     }
     public void removeCommentaire(int id) {
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
         factory.removeCommentaireDAO(id);
     }
-    public Commentaire setCommentaire(int commentaireId,int formationId,String authorName,String contenu,int note) {
+    public Commentaire setCommentaire(int commentaireId,Integer formationId, Integer postId, String authorName,String contenu,int note) {
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
-        this.commentaire = factory.setCommentaireDAO(commentaireId,formationId,authorName,contenu,note);
+        this.commentaire = factory.setCommentaireDAO(commentaireId,formationId,postId, authorName,contenu,note);
         return commentaire;
     }
 
-    public List<Commentaire> getCommentairesByFormationId(int formationId){
+    public List<Commentaire> getCommentairesByFormationId(Integer formationId){
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
         this.commentaires = factory.getCommentairesByFormationIdDAO(formationId);
+        return commentaires;
+    }
+    public List<Commentaire> getCommentairesByPostId(Integer formationId){
+        AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
+        this.commentaires = factory.getCommentairesByPostIdDAO(formationId);
         return commentaires;
     }
 

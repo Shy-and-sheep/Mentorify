@@ -1,5 +1,7 @@
 package com.example.PostControllers;
 
+import com.example.CommentairePackage.Commentaire;
+import com.example.CommentairePackage.CommentaireFacade;
 import com.example.PostsPackage.Post;
 import com.example.PostsPackage.PostFacade;
 import com.example.TPPackage.TypePost;
@@ -15,10 +17,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class DetailsPost implements Initializable {
 
@@ -51,11 +50,14 @@ public class DetailsPost implements Initializable {
 
     private Post post;
 
-    private List<String> commentaires = Arrays.asList("ceci est un commentaire", "ceci est un deuxième commentaire", "il faut remplacer par des vrais commentaires");
+    private List<Commentaire> commentaires;
+
+    private Map<String, Integer> mapCommentaires = new HashMap<>();
 
     @FXML
-    void ajoutCommentaire(ActionEvent event) {
-        //TODO ajouter le chemin pour aller à l'ajout de commentaire
+    void ajoutCommentaire(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("addCommentairePost-view.fxml");
     }
 
     @Override
@@ -67,10 +69,24 @@ public class DetailsPost implements Initializable {
             typePost.setText(tp.getNom());
             userName.setText("User id : " + post.getAuteurId());
             nbLikes.setText(String.valueOf(post.getNbLike()));
-            this.listCom.getItems().addAll(commentaires);
+
+            this.commentaires = CommentaireFacade.getInstance().getCommentairesByPostId(Integer.valueOf(post.getId()));
+
+            List<String> commentStrings = new ArrayList<>();
+            for (Commentaire commentaire : commentaires) {
+                String commentString = commentaire.getContenu();
+                commentStrings.add(commentString);
+                mapCommentaires.put(commentString, commentaire.getId());
+            }
+
+            // Ajouter les chaînes à la ListView
+            this.listCom.getItems().addAll(commentStrings);
+
             listCom.setOnMouseClicked(mouseEvent -> {
                 String selectedComment = listCom.getSelectionModel().getSelectedItem();
                 if (selectedComment != null) {
+                    Commentaire comm = CommentaireFacade.getInstance().getCommentaireById(mapCommentaires.get(selectedComment));
+                    auteurCom.setText(comm.getAuthorName() + " Note : " + comm.getNote() + "/5");
                     contenuCom.setText(selectedComment);
                 }
             });

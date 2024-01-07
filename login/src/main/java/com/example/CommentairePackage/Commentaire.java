@@ -1,23 +1,26 @@
 package com.example.CommentairePackage;
 
-import java.security.Timestamp;
-import java.util.*;
-import java.sql.*;
-
 public class Commentaire {
     private int id;
-    private int formationId;
+    private Integer formationId;
+
+    private Integer postId;
     private String authorName;
     private String contenu;
     private int note;
 
 
-    public Commentaire(int id, int formationId, String authorName, String contenu, int note) {
+    public int getPostId() {
+        return postId;
+    }
+
+    public Commentaire(int id, Integer formationId, Integer postId, String authorName, String contenu, int note) {
         this.id = id;
         this.formationId = formationId;
         this.authorName = authorName;
         this.contenu = contenu;
         this.note = note;
+        this.postId = postId;
     }
 
     public int getId() {

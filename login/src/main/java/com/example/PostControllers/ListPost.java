@@ -1,4 +1,5 @@
 package com.example.PostControllers;
+import com.example.CommentairePackage.CommentaireFacade;
 import com.example.PostsPackage.Post;
 import com.example.PostsPackage.PostFacade;
 import com.example.TPPackage.TypePost;
@@ -27,6 +28,7 @@ public class ListPost implements Initializable  {
     public Button modifierbutton;
     public Button viewbutton;
     public ChoiceBox<String> listTP;
+    public Button retourBtn;
     @FXML
     private Button AjouterBtn;
 
@@ -71,7 +73,6 @@ public class ListPost implements Initializable  {
         System.out.println("**********$$$$$$$$$$$$$$");
         listPost.getItems().addAll(postContenu);
         for (Post post : tabPost) {
-            System.out.println(post.getContenu());
             // TODO récupére le user avec son id pour afficher son username
             postMap.put(post.getContenu(), post.getAuteurId());
         }
@@ -86,6 +87,7 @@ public class ListPost implements Initializable  {
                 this.postFacade.getPostById(currentPost.getId());
                 contenuPost.setText(currentPost.getContenu());
                 nb_likes.setText(String.valueOf(currentPost.getNbLike()));
+                nb_commentaires.setText(String.valueOf(CommentaireFacade.getInstance().getCommentairesByPostId(currentPost.getId()).size()));
                 updateContenu();
 
                 Integer userId = postMap.get(newValue);

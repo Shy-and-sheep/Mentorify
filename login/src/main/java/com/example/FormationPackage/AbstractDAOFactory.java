@@ -35,7 +35,7 @@ public abstract class AbstractDAOFactory {
 
     public abstract Formation addFormationDAO(String authorName,String nom,String description, double prix,String typespayment, int nbPlacesMax, int nbPlacesDispo, String typeFormation);
 
-    public abstract Formation setFormationDAO(int formationId,String authorName,String nom,String description,double prix,String typespayment,int nbPlacesMax,int nbPlacesDispo,String typeFormation);
+    public abstract Formation setFormationDAO(Integer formationId,String authorName,String nom,String description,double prix,String typespayment,int nbPlacesMax,int nbPlacesDispo,String typeFormation);
 
     public abstract void inscriptionFormationDAO(int userId,int idFormation);
 

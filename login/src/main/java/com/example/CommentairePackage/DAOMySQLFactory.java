@@ -24,16 +24,21 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
         this.CommentaireDAOMySQL.removeCommentaire(id);
     }
     @Override
-    public Commentaire setCommentaireDAO(int commentaireId,int formationId,String authorName,String contenu,int note) {
-        return this.CommentaireDAOMySQL.setCommentaire(commentaireId,formationId,authorName,contenu,note);
+    public Commentaire setCommentaireDAO(int commentaireId,Integer formationId, Integer postId, String authorName,String contenu,int note) {
+        return this.CommentaireDAOMySQL.setCommentaire(commentaireId,formationId,postId , authorName,contenu,note);
     }
     @Override
-    public Commentaire addCommentaireDAO(int formationId,String authorName,String contenu,int note) {
-        return this.CommentaireDAOMySQL.addCommentaire(formationId,authorName,contenu,note);
+    public Commentaire addCommentaireDAO(Integer formationId, Integer postId, String authorName,String contenu,int note) {
+        return this.CommentaireDAOMySQL.addCommentaire(formationId,postId, authorName,contenu,note);
     }
     @Override
-    public List<Commentaire> getCommentairesByFormationIdDAO(int formationId){
+    public List<Commentaire> getCommentairesByFormationIdDAO(Integer formationId){
         return this.CommentaireDAOMySQL.getCommentairesByFormationId(formationId);
+    }
+
+    @Override
+    public List<Commentaire> getCommentairesByPostIdDAO(Integer postId) {
+        return this.CommentaireDAOMySQL.getCommentairesByPostId(postId);
     }
 
 }

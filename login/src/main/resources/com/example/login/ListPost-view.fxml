@@ -47,6 +47,7 @@
                   <FontAwesomeIcon glyphName="EYE" size="2em" />
                </graphic>
             </Button>
+            <Button fx:id="retourBtn" layoutX="34.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToAfterLogin" prefHeight="32.0" prefWidth="77.0" style="-fx-background-color: BB8A9A;" text="Retour" />
          </children>
       </AnchorPane>
    </center>

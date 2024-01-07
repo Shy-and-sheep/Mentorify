@@ -31,7 +31,7 @@ public class DAOMySQLFactory extends AbstractDAOFactory {
     }
 
     @Override
-    public Formation setFormationDAO(int formationId,String authorName,String nom,String description,double prix,String typespayment,int nbPlacesMax,int nbPlacesDispo,String typeFormation) {
+    public Formation setFormationDAO(Integer formationId,String authorName,String nom,String description,double prix,String typespayment,int nbPlacesMax,int nbPlacesDispo,String typeFormation) {
         return this.FormationDAOMySQL.setFormation(formationId,authorName,nom,description,prix,typespayment,nbPlacesMax,nbPlacesDispo,typeFormation);
     }
     @Override

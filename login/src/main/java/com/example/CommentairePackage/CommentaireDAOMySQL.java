@@ -22,19 +22,20 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
         Commentaire commentaire = null;
 
         try {
-            String query = "SELECT id, formationId, authorName, contenu, note FROM Commentaires WHERE id = ?";
+            String query = "SELECT id, formationId, postId, authorName, contenu, note FROM Commentaires WHERE id = ?";
             stmt = conn.prepareStatement(query);
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
             if (rs.next()) {
                 int commentaireId = rs.getInt("id");
-                int formationId = rs.getInt("formationId");
+                Integer formationId = rs.getInt("formationId");
+                Integer postId = rs.getInt("postId");
                 String authorName = rs.getString("authorName");
                 String contenu = rs.getString("contenu");
                 int note = rs.getInt("note");
 
-                commentaire = new Commentaire(commentaireId, formationId, authorName, contenu, note);
+                commentaire = new Commentaire(commentaireId, formationId, postId, authorName, contenu, note);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,19 +68,20 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
         List<Commentaire> commentaires = new ArrayList<>();
 
         try {
-            String query = "SELECT id,formationId,authorName,contenu,note FROM Commentaires";
+            String query = "SELECT id,formationId,postId,authorName,contenu,note FROM Commentaires";
             stmt = conn.prepareStatement(query);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 int commentaireId = rs.getInt("id");
-                int formationId = rs.getInt("formationId");
+                Integer formationId = rs.getInt("formationId");
+                Integer postId = rs.getInt("postId");
                 String authorName = rs.getString("authorName");
                 String contenu = rs.getString("contenu");
                 int note = rs.getInt("note");
 
 
-                Commentaire commentaire = new Commentaire(commentaireId, formationId, authorName,contenu,note);
+                Commentaire commentaire = new Commentaire(commentaireId, formationId, postId, authorName,contenu,note);
                 commentaires.add(commentaire);
                 System.out.println("Nom : " + commentaire.getId() + ", Contenu : " + commentaire.getContenu());
             }
@@ -89,7 +91,7 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
         return commentaires;
     }
 
-    public Commentaire addCommentaire(int formationId, String authorName, String contenu, int note) {
+    public Commentaire addCommentaire(Integer formationId, Integer postId, String authorName, String contenu, int note) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -99,12 +101,22 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
             conn = MySQLConnection.getConnection();
 
             // Ajout du commentaire avec la date actuelle
-            String query = "INSERT INTO Commentaires (formationId, authorName, contenu, note) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO Commentaires (formationId,postId, authorName, contenu, note) VALUES (?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, formationId);
-            stmt.setString(2, authorName);
-            stmt.setString(3, contenu);
-            stmt.setInt(4, note);
+            if (formationId != null) {
+                stmt.setInt(1, formationId);
+            } else {
+                stmt.setNull(1, java.sql.Types.INTEGER);
+            }
+
+            if (postId != null) {
+                stmt.setInt(2, postId);
+            } else {
+                stmt.setNull(2, java.sql.Types.INTEGER);
+            }
+            stmt.setString(3, authorName);
+            stmt.setString(4, contenu);
+            stmt.setInt(5, note);
             int rowsInserted = stmt.executeUpdate();
 
             if (rowsInserted > 0) {
@@ -112,7 +124,7 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
                 rs = stmt.getGeneratedKeys();
                 if (rs.next()) {
                     int nouveauCommentaireId = rs.getInt(1);
-                    nouveauCommentaire = new Commentaire(nouveauCommentaireId, formationId, authorName, contenu, note);
+                    nouveauCommentaire = new Commentaire(nouveauCommentaireId, formationId, postId, authorName, contenu, note);
                     System.out.println("Commentaire ajoutée avec l'ID : " + nouveauCommentaireId);
                 }
             }
@@ -122,7 +134,7 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
         return nouveauCommentaire;
     }
 
-    public Commentaire setCommentaire(int id,int formationId,String authorName,String contenu,int note) {
+    public Commentaire setCommentaire(int id,Integer formationId, Integer postId, String authorName,String contenu,int note) {
         Connection conn = MySQLConnection.getConnection();
         PreparedStatement stmt = null;
         Commentaire commentaire = null;
@@ -136,7 +148,7 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
 
             int rowsUpdated = stmt.executeUpdate();
             if (rowsUpdated > 0) {
-                commentaire = new Commentaire(id,formationId,authorName,contenu,note);
+                commentaire = new Commentaire(id,formationId,postId, authorName,contenu,note);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,7 +156,7 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
         return commentaire;
     }
 
-    public List<Commentaire> getCommentairesByFormationId(int formationId) {
+    public List<Commentaire> getCommentairesByFormationId(Integer formationId) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -163,7 +175,37 @@ public class CommentaireDAOMySQL extends CommentaireDA0 {
                 String contenu = rs.getString("contenu");
                 int note = rs.getInt("note");
 
-                Commentaire commentaire = new Commentaire(commentaireId, formationId, authorName, contenu, note);
+                Commentaire commentaire = new Commentaire(commentaireId, formationId, null, authorName, contenu, note);
+                commentaires.add(commentaire);
+                System.out.println(commentaire);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return commentaires;
+    }
+
+    @Override
+    public List<Commentaire> getCommentairesByPostId(Integer postId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Commentaire> commentaires = new ArrayList<>();
+
+        try {
+            conn = MySQLConnection.getConnection();
+            String query = "SELECT id, authorName, contenu, note FROM Commentaires WHERE postId = ?";
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, postId);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int commentaireId = rs.getInt("id");
+                String authorName = rs.getString("authorName");
+                String contenu = rs.getString("contenu");
+                int note = rs.getInt("note");
+
+                Commentaire commentaire = new Commentaire(commentaireId, null, postId, authorName, contenu, note);
                 commentaires.add(commentaire);
                 System.out.println(commentaire);
             }
