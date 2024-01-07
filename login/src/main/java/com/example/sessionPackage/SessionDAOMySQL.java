@@ -114,28 +114,24 @@ public class SessionDAOMySQL extends SessionDA0 {
         PreparedStatement statement = null;
 
         try {
-            // Suppression des formations associées à la session
             String deleteFormationQuery = "DELETE FROM FormationSession WHERE sessionId = ?";
             statement = conn.prepareStatement(deleteFormationQuery);
             statement.setInt(1, sessionId);
             statement.executeUpdate();
             closeStatement(statement);
 
-            // Suppression des types de paiement associés à la session
             String deleteTypePaymentQuery = "DELETE FROM TypePaiementSession WHERE sessionId = ?";
             statement = conn.prepareStatement(deleteTypePaymentQuery);
             statement.setInt(1, sessionId);
             statement.executeUpdate();
             closeStatement(statement);
 
-            // Suppression des inscriptions à la session
             String deleteInscriptionQuery = "DELETE FROM InscriptionSession WHERE sessionId = ?";
             statement = conn.prepareStatement(deleteInscriptionQuery);
             statement.setInt(1, sessionId);
             statement.executeUpdate();
             closeStatement(statement);
 
-            // Suppression de la session
             String deleteSessionQuery = "DELETE FROM Sessions WHERE id = ?";
             statement = conn.prepareStatement(deleteSessionQuery);
             statement.setInt(1, sessionId);
@@ -150,7 +146,6 @@ public class SessionDAOMySQL extends SessionDA0 {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // Fermeture des ressources
             closeStatement(statement);
         }
     }
@@ -293,7 +288,6 @@ public class SessionDAOMySQL extends SessionDA0 {
             System.out.println("etudiant bien inscrit");
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon le cas
         }
     }
 
@@ -307,9 +301,10 @@ public class SessionDAOMySQL extends SessionDA0 {
             statement.setInt(1, etudiantId);
             statement.setInt(2, sessionId);
             statement.executeUpdate();
+            System.out.println("étudiant bien désinscrit");
+
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception selon le cas
         }
     }
 
@@ -339,13 +334,10 @@ public class SessionDAOMySQL extends SessionDA0 {
                 if (generatedKeys.next()) {
                     int sessionId = generatedKeys.getInt(1);
 
-                    // Enregistrer les formations associées à cette session
                     saveFormationsForSession(sessionId, formations, conn);
 
-                    // Enregistrer les types de paiement associés à cette session
                     saveTypePaiementForSession(sessionId, typespayment, conn);
 
-                    // Créer un nouvel objet Session avec les valeurs
                     createdSession = new Session(sessionId, authorId, nom, description, prix, nbPlacesMax, lieu, date);
                     createdSession.setFormations(formations);
                     createdSession.setTypespaiement(typespayment);
@@ -383,16 +375,12 @@ public class SessionDAOMySQL extends SessionDA0 {
 
             statement.executeUpdate();
 
-            // Supprimer les anciennes relations de formation pour cette session
             deleteFormationsForSession(sessionId, conn);
 
-            // Enregistrer les nouvelles formations associées à cette session
             saveFormationsForSession(sessionId, formations, conn);
 
-            // Supprimer les anciennes relations de type de paiement pour cette session
             deleteTypePaiementForSession(sessionId, conn);
 
-            // Enregistrer les nouveaux types de paiement associés à cette session
             saveTypePaiementForSession(sessionId, typespayment, conn);
 
             deleteEtudiantForSession(sessionId, conn);
