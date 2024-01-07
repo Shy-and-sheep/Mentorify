@@ -1,8 +1,8 @@
 package com.example.SessionControllers;
 
 import com.example.FormationPackage.FormationFacade;
-import com.example.LoginPackage.User;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.User;
+import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import com.example.sessionPackage.Session;
 import com.example.sessionPackage.SessionFacade;

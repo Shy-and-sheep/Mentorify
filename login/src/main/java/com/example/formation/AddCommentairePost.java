@@ -1,7 +1,7 @@
 package com.example.formation;
 
 import com.example.CommentairePackage.CommentaireFacade;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.PostsPackage.PostFacade;
 import com.example.login.Main;
 import javafx.event.ActionEvent;

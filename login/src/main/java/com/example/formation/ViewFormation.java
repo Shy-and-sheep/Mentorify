@@ -2,7 +2,7 @@ package com.example.formation;
 
 import com.example.FormationPackage.Formation;
 import com.example.FormationPackage.FormationFacade;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

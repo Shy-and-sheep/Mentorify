@@ -1,7 +1,7 @@
 package com.example.admin;
 
 
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.login.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +33,11 @@ public class TableauDeBord {
     public void switchToTypePost(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("TP-view.fxml");
+    }
+
+    public void switchToTypePaiement(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("TPaiement.fxml");
     }
 }
 

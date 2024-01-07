@@ -1,10 +1,10 @@
 package com.example.sessionPackage;
 
 import com.example.FormationPackage.FormationFacade;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.database.MySQLConnection;
 import com.example.FormationPackage.Formation;
-import com.example.LoginPackage.User;
+import com.example.UserPackage.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,9 @@
 import com.example.FormationPackage.FormationFacade;
+import com.example.UserPackage.UserFacade;
 import com.example.sessionPackage.Session;
 import com.example.sessionPackage.SessionFacade;
 import com.example.FormationPackage.Formation;
-import com.example.LoginPackage.User;
+import com.example.UserPackage.User;
 import com.example.sessionPackage.TypePaiement;
 import org.junit.After;
 import org.junit.Before;
@@ -99,7 +100,7 @@ public class SessionTest {
 
     @Test
     public void testGetSessionById() {
-        int sessionId = 1;
+        int sessionId = 10;
         Session retrievedSession = sessionFacade.getSessionById(sessionId);
         assertNotNull(retrievedSession);
     }

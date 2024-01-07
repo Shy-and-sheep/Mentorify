@@ -1,7 +1,7 @@
 package com.example.sessionPackage;
 
 import com.example.FormationPackage.Formation;
-import com.example.LoginPackage.User;
+import com.example.UserPackage.User;
 
 import java.util.List;
 

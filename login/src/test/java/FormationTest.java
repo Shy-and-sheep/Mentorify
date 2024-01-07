@@ -1,6 +1,6 @@
 import com.example.FormationPackage.*;
-import com.example.LoginPackage.User;
-import com.example.LoginPackage.UserFacade;
+import com.example.UserPackage.User;
+import com.example.UserPackage.UserFacade;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -7,7 +7,8 @@ module com.example.login {
     //requires junit;
     opens com.example.login to javafx.fxml;
     exports com.example.login;
-    exports com.example.LoginPackage;
+    exports com.example.UserPackage;
+    //exports com.example.LoginPackage;
     exports com.example.TFPackage;
     exports com.example.sessionPackage;
     opens com.example.TFPackage to javafx.fxml;
@@ -29,6 +30,12 @@ module com.example.login {
     opens com.example.admin to javafx.fxml;
     exports com.example.admin.TPControllers;
     opens com.example.admin.TPControllers to javafx.fxml;
+    exports com.example.TPaiement;
+    opens com.example.TPaiement to javafx.fxml;
+    exports com.example.TPaiementPackage;
+    opens com.example.TPaiementPackage to javafx.fxml;
+    exports com.example.Register ;
+    opens com.example.Register to javafx.fxml ;
     exports com.example.SessionControllers;
     opens  com.example.SessionControllers to javafx.fxml;
 }

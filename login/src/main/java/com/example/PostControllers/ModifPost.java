@@ -1,7 +1,7 @@
 package com.example.PostControllers;
 
-        import com.example.LoginPackage.User;
-        import com.example.LoginPackage.UserFacade;
+        import com.example.UserPackage.User;
+        import com.example.UserPackage.UserFacade;
         import com.example.PostsPackage.Post;
         import com.example.PostsPackage.PostFacade;
         import com.example.TPPackage.TypePost;
