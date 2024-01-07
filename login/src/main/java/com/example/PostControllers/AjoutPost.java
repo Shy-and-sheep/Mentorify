@@ -6,6 +6,8 @@ import com.example.PostsPackage.PostFacade;
 import com.example.TPPackage.TypePost;
 import com.example.TPPackage.TypePostFacade;
 import com.example.login.Main;
+import com.example.sessionPackage.Session;
+import com.example.sessionPackage.SessionFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +42,7 @@ public class AjoutPost implements Initializable {
 
     private PostFacade postFacade = PostFacade.getInstance();
 
-    private List<String> listSessionId = new ArrayList<>();
+    private List<Session> listSessionId = new ArrayList<>();
 
     private  Map<String, Integer> mapNomSession = new HashMap<>();
 
@@ -57,17 +59,16 @@ public class AjoutPost implements Initializable {
 
     @FXML
     void ajoutPost(ActionEvent event) throws IOException {
-            // Récupérer les valeurs sélectionnées dans les ChoiceBox et les champs TextField
-            String contenuText = contenu.getText(); // Récupérer le contenu du TextField
+            String contenuText = contenu.getText();
 
-            String selectedType = typePost.getSelectionModel().getSelectedItem(); // Récupérer le type de post sélectionné dans le ChoiceBox typePost
-            int typeId = mapNomTP.get(selectedType); // Récupérer l'ID du type de post
+            String selectedType = typePost.getSelectionModel().getSelectedItem();
+            int typeId = mapNomTP.get(selectedType);
 
-            String selectedSession = sessions.getSelectionModel().getSelectedItem(); // Récupérer la session sélectionnée dans le ChoiceBox sessions
-            int sessionId = mapNomSession.get(selectedSession); // Récupérer l'ID de la session
+            String selectedSession = sessions.getSelectionModel().getSelectedItem();
+            int sessionId = mapNomSession.get(selectedSession);
             int authorId = UserFacade.getInstance().getUser().getId();
 
-            Post addedPost = postFacade.addPost(authorId, contenuText, typeId, 0, sessionId); // Le nbLike est 0 par défaut
+            Post addedPost = postFacade.addPost(authorId, contenuText, typeId, 0, sessionId);
             System.out.println(addedPost);
 
             if (addedPost != null) {
@@ -85,11 +86,10 @@ public class AjoutPost implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //TODO remplacer par un getAllSessions
-        this.listSessionId = Arrays.asList("s1", "s2", "s3");
-        for (int i = 0; i< this.listSessionId.size(); i++) {
-            this.mapNomSession.put(listSessionId.get(i), i );
-            this.sessions.getItems().add(listSessionId.get(i));
+        this.listSessionId = SessionFacade.getInstance().getAllSession();
+        for (Session session : listSessionId) {
+            this.mapNomSession.put(session.getNom(), session.getId() );
+            this.sessions.getItems().add(session.getNom());
         }
 
         TypePostFacade typePostFacade = TypePostFacade.getInstance();
