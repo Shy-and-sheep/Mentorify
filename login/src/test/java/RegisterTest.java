@@ -33,4 +33,9 @@ public class RegisterTest {
 
     }
 
+    @Test
+    public void RegisterTestFail () {
+
+    }
+
 }
