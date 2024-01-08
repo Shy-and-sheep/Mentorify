@@ -14,8 +14,8 @@ public class LoginTest {
     @Test
     public void testLoginSuccess() {
         UserFacade userFacade = UserFacade.getInstance();
-        String username = "amel"; // à mettre un utilisateur valide
-        String password = "amel"; // à mettre un mot de passe valide
+        String username = "cvb"; // à mettre un utilisateur valide
+        String password = "gsss"; // à mettre un mot de passe valide
 
         User result = userFacade.login(username, password);
 
