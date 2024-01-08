@@ -35,10 +35,20 @@ public class UserFacade {
         }
         */
 
+        if (username.isEmpty()){
+            System.out.println("Username vide");
+            return null;
+        }
+        if (mdp.length()< 8) {
+            System.out.println("Password vide ou ses caractères sont inférieurs à 8");
+            return null;
+        }
+
         // Créer un nouvel utilisateur
         AbstractDAOFactory factory = AbstractDAOFactory.getInstance();
         User newUser = factory.CreateUser(last_name, first_name, username, mdp, email, status);
 
         return newUser;
+
     }
 }
