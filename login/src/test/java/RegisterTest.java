@@ -35,7 +35,17 @@ public class RegisterTest {
 
     @Test
     public void RegisterTestFail () {
+        String last_name = " 20";
+        String first_name = "20";
+        String username = "20";
+        String password = "20";
+        String email = "20@gmail.com";
+        String status = "20";
 
+        // Tentative d'inscription avec des informations qui devraient échouer
+        User newUser = userFacade.Register(last_name, first_name, username, password, email, status);
+
+        assertNull(newUser);
     }
 
 }
