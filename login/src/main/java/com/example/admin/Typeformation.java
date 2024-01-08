@@ -88,6 +88,10 @@ public class Typeformation implements Initializable {
         Main m = new Main();
         m.changeScene("ajoutTypeFormation.fxml");
     }
+    public void backtab(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("tableauDeBord.fxml");
+    }
     public void setTypeFormation(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("modifierTypeFormation.fxml");

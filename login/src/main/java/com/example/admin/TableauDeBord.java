@@ -39,5 +39,10 @@ public class TableauDeBord {
         Main m = new Main();
         m.changeScene("TPaiement.fxml");
     }
+
+    public void backtohome(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("afterLogin.fxml");
+    }
 }
 

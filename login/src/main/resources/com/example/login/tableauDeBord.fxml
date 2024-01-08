@@ -5,48 +5,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.VBox?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.admin.TableauDeBord">
    <top>
-      <AnchorPane prefHeight="116.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="tabdebordlabel" layoutX="162.0" layoutY="77.0" text="Tableau de bord Gestion" textFill="#523d41">
+            <Label fx:id="tabdebordlabel" layoutX="162.0" layoutY="62.0" text="Tableau de bord Gestion" textFill="#523d41">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
+            <Button layoutX="21.0" layoutY="27.0" mnemonicParsing="false" onAction="#backtohome" style="-fx-background-color: BB8A9A;" text="Retour">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>
    <center>
       <VBox alignment="CENTER" spacing="20">
          <children>
-            <Button fx:id="typesDeFormationButton" mnemonicParsing="false" onAction="#switchToTypeFormation" style="-fx-background-color: BB8A9A;" text="Types de formation">               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIcon glyphName="INFO" size="2em" />
-               </graphic>
-            </Button>
-            <Button fx:id="typesDePostButton" mnemonicParsing="false" onAction="#switchToTypePost" style="-fx-background-color: BB8A9A;" text="Types de post">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIcon glyphName="INFO" size="2em" />
-               </graphic>
-            </Button>
-
-            <Button fx:id="typesPaiementButton" mnemonicParsing="false" onAction="#switchToTypePaiement" style="-fx-background-color: BB8A9A;" text="Types paiement">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIcon glyphName="INFO" size="2em" />
-               </graphic>
-            </Button>
+            <AnchorPane prefHeight="297.0" prefWidth="600.0">
+               <children>
+      
+                  <Button fx:id="typesPaiementButton" layoutX="406.0" layoutY="61.0" mnemonicParsing="false" onAction="#switchToTypePaiement" prefHeight="100.0" prefWidth="170.0" style="-fx-background-color: BB8A9A;" text="Types paiement" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="MONEY" size="2em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="typesDeFormationButton" layoutX="22.0" layoutY="61.0" mnemonicParsing="false" onAction="#switchToTypeFormation" prefHeight="100.0" prefWidth="170.0" style="-fx-background-color: BB8A9A;" text="Types de formation" wrapText="true">               <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="GRADUATION_CAP" size="2em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="typesDePostButton" layoutX="215.0" layoutY="61.0" mnemonicParsing="false" onAction="#switchToTypePost" prefHeight="100.0" prefWidth="170.0" style="-fx-background-color: BB8A9A;" text="Types de post" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USERS" size="2em" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
    </center>

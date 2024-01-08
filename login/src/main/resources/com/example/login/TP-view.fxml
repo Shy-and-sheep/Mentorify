@@ -21,6 +21,11 @@
                   <InnerShadow />
                </effect>
             </Label>
+            <Button layoutX="27.0" layoutY="24.0" mnemonicParsing="false" onAction="#backtoTab" style="-fx-background-color: BB8A9A;" text="Retour">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>
@@ -30,7 +35,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="listPub" style="-fx-background-color: D8CDCD;" editable="true" layoutY="66.0" prefHeight="200.0" prefWidth="378.0" />
+            <ListView fx:id="listPub" editable="true" layoutY="66.0" prefHeight="200.0" prefWidth="378.0" style="-fx-background-color: D8CDCD;" />
          </children>
       </AnchorPane>
    </center>
@@ -50,12 +55,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="141.0" mnemonicParsing="false" onAction="#ajoutTP" style="-fx-background-color: BFB0B0;" text="Ajouter">
+            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="119.0" mnemonicParsing="false" onAction="#ajoutTP" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
                <graphic>
-                  <FontAwesomeIcon glyphName="PLUS" />
+                  <FontAwesomeIcon fill="#f8e7e7" glyphName="PLUS" />
                </graphic>
             </Button>
             <Button fx:id="modifierbutton" layoutX="461.0" layoutY="82.0" mnemonicParsing="false" onAction="#setTypePost" prefHeight="29.0" prefWidth="43.0" style="-fx-background-color: C6D3B6;">
