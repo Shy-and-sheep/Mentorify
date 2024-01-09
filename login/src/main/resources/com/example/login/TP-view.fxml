@@ -45,17 +45,17 @@
    <bottom>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="typepostnom" alignment="CENTER" layoutY="90.0" prefHeight="21.0" prefWidth="436.0">
+            <Label fx:id="typepostnom" alignment="CENTER" layoutX="9.0" layoutY="90.0" prefHeight="21.0" prefWidth="427.0" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="descriptionLabel" alignment="CENTER" layoutX="-4.0" layoutY="109.0" prefHeight="19.0" prefWidth="444.0">
+            <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="109.0" prefHeight="81.0" prefWidth="435.0" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="150.0" mnemonicParsing="false" onAction="#ajoutTP" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
+            <Button fx:id="ajouterbutton" layoutX="469.0" layoutY="141.0" mnemonicParsing="false" onAction="#ajoutTP" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
