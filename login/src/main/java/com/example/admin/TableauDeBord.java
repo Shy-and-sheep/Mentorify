@@ -18,7 +18,7 @@ public class TableauDeBord {
 
     @FXML
     private Button typesDePostButton;
-
+    
     @FXML
     private Label tabdebordlabel;
 
@@ -33,6 +33,11 @@ public class TableauDeBord {
     public void switchToTypePost(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("TP-view.fxml");
+    }
+    
+    public void switchToRolePermission(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("GestionRolesPermissions.fxml");
     }
 }
 
