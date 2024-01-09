@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PostControllers.ListPost">
+   <center>
+      <AnchorPane prefHeight="443.0" prefWidth="628.0" style="-fx-background-color: #F7F3F3;" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="listPost" layoutX="81.0" layoutY="100.0" prefHeight="230.0" prefWidth="276.0" style="-fx-background-color: #D8CDCD;" />
+            <Button fx:id="AjouterBtn" layoutX="172.0" layoutY="341.0" mnemonicParsing="false" onAction="#ajoutPost" prefHeight="39.0" prefWidth="94.0" style="-fx-background-color: #523D41;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="contenuPost" layoutX="398.0" layoutY="131.0" prefHeight="84.0" prefWidth="171.0" style="-fx-background-color: #D8CDCD;" />
+            <FontAwesomeIcon layoutX="417.0" layoutY="270.0" glyphName="HEART" size="2em" wrappingWidth="34.0" />
+            <Label fx:id="nb_likes" layoutX="447.0" layoutY="233.0" prefHeight="45.0" prefWidth="23.0" />
+            <FontAwesomeIcon layoutX="495.0" layoutY="270.0" glyphName="COMMENTS" size="2em" wrappingWidth="34.0" />
+            <Label fx:id="nb_commentaires" layoutX="525.0" layoutY="233.0" prefHeight="45.0" prefWidth="23.0" />
+            <Label fx:id="titre" layoutX="228.0" layoutY="14.0" text="Liste des post" textFill="#523d41">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="listTP" layoutX="194.0" layoutY="59.0" prefHeight="14.0" prefWidth="145.0" style="-fx-background-color: #D8CDCD;" />
+            <Label layoutX="101.0" layoutY="64.0" text="Type de post" />
+            <Label fx:id="autheur" layoutX="416.0" layoutY="81.0" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #D8CDCD;" />
+            <Button fx:id="supprimerbutton" layoutX="519.0" layoutY="341.0" mnemonicParsing="false" onAction="#removePost" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BB8A9A;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="2em" text=" " wrappingWidth="34.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="modifierbutton" layoutX="461.0" layoutY="341.0" mnemonicParsing="false" onAction="#setPost" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: C6D3B6;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="viewbutton" layoutX="400.0" layoutY="341.0" mnemonicParsing="false" onAction="#viewPost" prefHeight="39.0" prefWidth="52.0" style="-fx-background-color: BFB0B0;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="EYE" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="retourBtn" layoutX="34.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToAfterLogin" prefHeight="32.0" prefWidth="77.0" style="-fx-background-color: BB8A9A;" text="Retour" />
+            <Separator layoutY="-3.0" prefHeight="7.0" prefWidth="601.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

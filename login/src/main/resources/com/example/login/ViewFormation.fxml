@@ -56,7 +56,7 @@
                         <Font name="FreeMono" size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="inscription2Label" layoutX="328.0" layoutY="17.0" prefHeight="18.0" prefWidth="219.0">
+                  <Label fx:id="inscription2Label" layoutX="390.0" layoutY="17.0" prefHeight="18.0" prefWidth="219.0">
                      <font>
                         <Font name="FreeMono" size="15.0" />
                      </font>

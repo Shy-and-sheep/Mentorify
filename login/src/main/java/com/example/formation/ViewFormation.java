@@ -36,6 +36,8 @@ public class ViewFormation implements Initializable{
 
     private FormationFacade formationFacade;
 
+    Formation formation;
+
     /**
      * Default constructor
      */
@@ -43,7 +45,7 @@ public class ViewFormation implements Initializable{
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Formation formation = formationFacade.getInstance().getFormation();
+        this.formation = formationFacade.getInstance().getFormation();
         if (formation != null) {
             formationName.setText(formation.getNom());
             userName.setText(formation.getAuthorName());
@@ -65,6 +67,9 @@ public class ViewFormation implements Initializable{
         int formationId = formationFacade.getInstance().getFormation().getId();
         formationFacade.getInstance().inscriptionFormation(userId,formationId);
         inscription2Label.setText("Inscription validée !");
+        this.formation = FormationFacade.getInstance().getFormationById(formationId);
+        placeLabel.setText((formation.getNbPlacesMax() - formation.getNbPlacesDispo()) + "/" + formation.getNbPlacesMax());
+
 
     }
 
@@ -73,6 +78,9 @@ public class ViewFormation implements Initializable{
         int formationId = formationFacade.getInstance().getFormation().getId();
         formationFacade.getInstance().desinscriptionFormation(userId,formationId);
         inscription2Label.setText("Inscription annulée !");
+        this.formation = FormationFacade.getInstance().getFormationById(formationId);
+        placeLabel.setText((formation.getNbPlacesMax() - formation.getNbPlacesDispo()) + "/" + formation.getNbPlacesMax());
+
 
     }
     public void goToComments(ActionEvent event) throws IOException {

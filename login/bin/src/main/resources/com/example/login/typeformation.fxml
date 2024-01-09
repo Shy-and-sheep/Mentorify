@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: F7F3F3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.admin.Typeformation">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="titre" layoutX="163.0" layoutY="25.0" text="Les types de formation" textAlignment="CENTER" textFill="#523d41">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" onAction="#backtab" style="-fx-background-color: BB8A9A;" text="Retour">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="listetypeformation" editable="true" layoutY="66.0" prefHeight="200.0" prefWidth="378.0" style="-fx-background-color: D8CDCD;" />
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="typeformationname" alignment="CENTER" layoutY="90.0" prefHeight="21.0" prefWidth="436.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionLabel" alignment="CENTER" layoutX="-4.0" layoutY="109.0" prefHeight="19.0" prefWidth="444.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="119.0" mnemonicParsing="false" onAction="#addTypeFormation" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />
+               </graphic>
+            </Button>
+            <Button fx:id="modifierbutton" layoutX="461.0" layoutY="82.0" mnemonicParsing="false" onAction="#setTypeFormation" prefHeight="29.0" prefWidth="43.0" style="-fx-background-color: C6D3B6;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PENCIL" size="2em" text=" " wrappingWidth="35.285715103149414" />
+               </graphic>
+            </Button>
+            <Button fx:id="supprimerboutton" layoutX="524.0" layoutY="82.0" mnemonicParsing="false" onAction="#removeTypeFormation" prefHeight="30.0" prefWidth="55.0" style="-fx-background-color: BB8A9A;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="2em" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

@@ -55,7 +55,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="119.0" mnemonicParsing="false" onAction="#addTypeFormation" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
+            <Button fx:id="ajouterbutton" layoutX="245.0" layoutY="150.0" mnemonicParsing="false" onAction="#addTypeFormation" style="-fx-background-color: #332304;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

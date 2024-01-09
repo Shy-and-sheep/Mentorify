@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F7F3F3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SessionControllers.DetailsSession">
+   <top>
+      <AnchorPane prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="195.0" layoutY="18.0" text="Session: " textFill="#523d41">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomSession" layoutX="277.0" layoutY="18.0" prefHeight="26.0" prefWidth="100.0" textFill="#523d41">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="retourBtn" layoutX="23.0" layoutY="13.0" mnemonicParsing="false" onAction="#retournListSes" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #BB8A9A;" text="Retour" textFill="#523d41" />
+            <Button fx:id="inscriptionBtn" layoutX="491.0" layoutY="10.0" mnemonicParsing="false" onAction="#inscriptionSession" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #C6D3B6;" text="M'inscrire" textFill="#523d41" />
+            <Button fx:id="desinscrirebtn" layoutX="478.0" layoutY="47.0" mnemonicParsing="false" onAction="#desinscrire" prefHeight="32.0" prefWidth="109.0" style="-fx-background-color: #BB8A9A;" text="Me désinscrire" textFill="#523d41" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="333.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="descriptionSession" layoutX="58.0" layoutY="14.0" prefHeight="79.0" prefWidth="484.0" style="-fx-background-color: #D8CDCD; -fx-border-color: #523D41;" textFill="#523d41" />
+            <FontAwesomeIcon glyphName="EUR" layoutX="95.0" layoutY="140.0" size="2em" />
+            <FontAwesomeIcon glyphName="CALENDAR" layoutX="190.0" layoutY="140.0" size="2em" />
+            <FontAwesomeIcon glyphName="USERS" layoutX="340.0" layoutY="140.0" size="2em" />
+            <FontAwesomeIcon glyphName="MAP_MARKER" layoutX="455.0" layoutY="140.0" size="2em" />
+            <Label fx:id="prix" layoutX="119.0" layoutY="122.0" />
+            <Label fx:id="date" layoutX="231.0" layoutY="122.0" />
+            <Label fx:id="nbInscrit" layoutX="376.0" layoutY="122.0" />
+            <Label fx:id="lieu" layoutX="482.0" layoutY="122.0" />
+            <ListView fx:id="listFormations" layoutX="39.0" layoutY="207.0" prefHeight="96.0" prefWidth="236.0" />
+            <Label layoutX="39.0" layoutY="180.0" text="Liste des formations" textFill="#523d41">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="voirBtn" layoutX="284.0" layoutY="234.0" mnemonicParsing="false" onAction="#voirFormation" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #D8CDCD;">
+               <graphic>
+                  <FontAwesomeIcon glyphName="EYE" size="2em" />
+               </graphic>
+            </Button>
+            <ListView fx:id="listTPaiement" layoutX="368.0" layoutY="207.0" prefHeight="96.0" prefWidth="193.0" />
+            <Label layoutX="369.0" layoutY="180.0" text="Liste des Types de Paiement " textFill="#523d41">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
